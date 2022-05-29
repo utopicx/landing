@@ -71,6 +71,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                   <p className="sr-only">Cerrar menu</p>
                   <img src="/cross.png" alt="Cruz" />
                 </button>
+                <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mt-20 h-28 mx-auto mb-6" />
                 <nav>
                   <ul className="w-64 mx-auto space-y-8">

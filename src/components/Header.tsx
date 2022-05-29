@@ -11,7 +11,7 @@ const Header: React.FC = () => {
         href="#home"
         className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-yellow focus:ring-offset-transparent"
       >
-        <LogoMini className="w-12 h-12" />
+        <LogoMini className="w-12 h-12 animate-spin-slow" />
       </a>
       <button
         className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"

@@ -13,6 +13,9 @@ module.exports = {
           "gray-dark": "#383838",
         },
       },
+      animation: {
+        "spin-slow": "spin 15s linear infinite",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
