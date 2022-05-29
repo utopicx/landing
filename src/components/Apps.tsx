@@ -12,10 +12,16 @@ const Apps: React.FC = () => {
         son.
       </p>
       <div className="flex justify-center gap-x-1">
-        <a>
+        <a
+          className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+          href=""
+        >
           <img src="/android.png" alt="Android" />
         </a>
-        <a>
+        <a
+          className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+          href=""
+        >
           <img src="/apple.png" alt="Apple" />
         </a>
       </div>

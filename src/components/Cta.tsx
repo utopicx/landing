@@ -14,7 +14,7 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => setShowModalCta(true)}
-        className="text-utopicx-cyan text-lg rounded-bl-lg rounded-tr-lg border-2 border-utopicx-cyan px-6"
+        className="text-utopicx-cyan text-lg rounded-bl-lg rounded-tr-lg border-2 border-utopicx-cyan px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-cyan focus:ring-offset-transparent"
       >
         Comunicate con nosotrxs
       </button>
@@ -29,7 +29,7 @@ const Cta: React.FC = () => {
         <img
           className="rotate-180"
           src="/arrowDown.png"
-          alt="Flecha hacia abajo"
+          alt="Flecha hacia arriba"
         />
       </a>
       <ModalCta show={showModalCta} closeModal={() => setShowModalCta(false)} />

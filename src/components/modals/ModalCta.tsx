@@ -1,6 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { CheckIcon } from "@heroicons/react/outline";
 import { useForm } from "react-hook-form";
 import Cross from "../svgs/Cross";
 
@@ -15,7 +14,7 @@ interface Form {
   comments: string;
 }
 
-const ModalCta = ({ show, closeModal }: Props) => {
+const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
   const { register, handleSubmit } = useForm<Form>();
 
   const submit = () => {
@@ -34,7 +33,7 @@ const ModalCta = ({ show, closeModal }: Props) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-900 transition-opacity" />
+          <div className="fixed inset-0 bg-utopicx-gray-dark transition-opacity" />
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
@@ -51,7 +50,7 @@ const ModalCta = ({ show, closeModal }: Props) => {
               <Dialog.Panel className="relative border-2 border-utopicx-magenta bg-transparent rounded-bl-lg rounded-tr-lg px-6 pt-5 pb-6 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6">
                 <button
                   type="button"
-                  className="absolute right-4 top-4"
+                  className="absolute right-4 top-4 border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <Cross />
