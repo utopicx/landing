@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import LogoHorizontalDark from "../svgs/LogoHorizontalDark";
+import { useGlobal } from "../../context/global/Context";
 
 interface Props {
   show: boolean;
@@ -31,9 +32,11 @@ const MENU_DATA = [
 ];
 
 const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
-  const goTo = (idElement: string) => {
+  const { state } = useGlobal();
+
+  const goTo = (indexSlide: number) => {
     closeModal();
-    document.getElementById(idElement)?.scrollIntoView();
+    state.swiperMaster?.slideTo(indexSlide);
   };
 
   return (
@@ -75,12 +78,12 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                 <LogoHorizontalDark className="mt-20 h-28 mx-auto mb-6" />
                 <nav>
                   <ul className="w-64 mx-auto space-y-8">
-                    {MENU_DATA.map((section) => (
+                    {MENU_DATA.map((section, i) => (
                       <li key={`section-${section.name}`}>
                         <button
                           className="text-utopicx-magenta font-bold text-3xl py-1 w-full rounded-bl-lg rounded-tr-lg border-2 border-utopicx-magenta px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
                           type="button"
-                          onClick={() => goTo(section.href)}
+                          onClick={() => goTo(i)}
                         >
                           {section.name}
                         </button>

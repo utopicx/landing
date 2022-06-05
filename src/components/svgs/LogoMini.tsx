@@ -1,20 +1,20 @@
-import { SVGProps } from "react";
+import { forwardRef, Ref, SVGProps } from "react";
 
 interface SVGRProps {
   title?: string;
   titleId?: string;
 }
 
-const LogoMini = ({
-  title,
-  titleId,
-  ...props
-}: SVGProps<SVGSVGElement> & SVGRProps) => (
+const LogoMini = (
+  { title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRProps,
+  ref?: Ref<SVGSVGElement>
+) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 430 430"
     aria-labelledby={titleId}
     {...props}
+    ref={ref}
   >
     {title ? <title id={titleId}>{title}</title> : null}
     <path
@@ -37,5 +37,5 @@ const LogoMini = ({
     />
   </svg>
 );
-
-export default LogoMini;
+const ForwardRef = forwardRef(LogoMini);
+export default ForwardRef;

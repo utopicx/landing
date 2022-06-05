@@ -13,8 +13,9 @@ module.exports = {
           "gray-dark": "#383838",
         },
       },
-      animation: {
-        "spin-slow": "spin 15s linear infinite",
+      rotate: {
+        270: "270deg",
+        360: "360deg",
       },
     },
   },
