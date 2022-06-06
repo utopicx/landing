@@ -65,8 +65,10 @@ const Header: React.FC = () => {
         onClick={() => state.swiperMaster?.slideTo(0)}
         className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-yellow focus:ring-offset-transparent"
       >
+        <span>Inicio</span>
         <LogoMini
           ref={logoRef}
+          title="Utópicx"
           className="w-12 h-12 duration-700 rotate-0 transition-transform transform-gpu"
         />
       </button>

@@ -1,4 +1,5 @@
 import Header from "./Header";
+import Seo from "./Seo";
 
 interface Props {
   children: React.ReactNode;
@@ -7,6 +8,7 @@ interface Props {
 const Layout: React.FC<Props> = ({ children }) => {
   return (
     <section className="bg-utopicx-gray-dark">
+      <Seo />
       <Header />
       <main className="h-screen relative">{children}</main>
     </section>
