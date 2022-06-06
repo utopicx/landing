@@ -1,5 +1,7 @@
 import { useGlobal } from "../context/global/Context";
 import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
+import arrowDownImg from "../../public/images/arrowDown.png";
+import Image from "next/image";
 
 const Home: React.FC = () => {
   const { state } = useGlobal();
@@ -20,7 +22,7 @@ const Home: React.FC = () => {
         onClick={() => state.swiperMaster?.slideTo(1)}
       >
         <p className="sr-only">Siguiente pantalla</p>
-        <img src="/arrowDown.png" alt="Flecha hacia abajo" />
+        <Image src={arrowDownImg} alt="Flecha hacia abajo" />
       </button>
     </section>
   );

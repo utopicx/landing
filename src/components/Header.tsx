@@ -4,6 +4,8 @@ import ModalMenu from "./modals/ModalMenu";
 import LogoMini from "./svgs/LogoMini";
 import styles from "./Header.module.css";
 import classNames from "../utils/classNames";
+import BurgerImg from "../../public/images/burger.png";
+import Image from "next/image";
 
 const Header: React.FC = () => {
   const { state } = useGlobal();
@@ -32,19 +34,19 @@ const Header: React.FC = () => {
             rotate = "rotate-0";
             break;
           case 1:
-            rotate = "rotate-90";
+            rotate = "rotate-120";
             break;
 
           case 2:
-            rotate = "rotate-180";
+            rotate = "rotate-240";
             break;
 
           case 3:
-            rotate = "rotate-270";
+            rotate = "rotate-360";
             break;
 
           case 4:
-            rotate = "rotate-360";
+            rotate = "rotate-[480deg]";
             break;
           default:
             break;
@@ -57,7 +59,7 @@ const Header: React.FC = () => {
   }, [state.swiperMaster]);
 
   return (
-    <header className="flex justify-between items-center px-4 py-2 fixed z-20 top-0 w-screen bg-utopicx-gray-dark bg-opacity-95">
+    <header className="flex justify-between items-center px-4 py-2 fixed z-20 top-0 w-screen">
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
@@ -83,11 +85,7 @@ const Header: React.FC = () => {
         onClick={() => setShowMenu(true)}
       >
         <p className="sr-only">Abrir menu</p>
-        <img
-          className="object-contain w-10 h-10"
-          src="/burger.png"
-          alt="Menu"
-        />
+        <Image src={BurgerImg} alt="Menu" className="w-10 h-10" />
       </button>
       <ModalMenu show={showMenu} closeModal={() => setShowMenu(false)} />
     </header>

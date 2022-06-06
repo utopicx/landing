@@ -264,10 +264,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:17.0.39":
-  version: 17.0.39
-  resolution: "@types/node@npm:17.0.39"
-  checksum: 1258561d0af920e52a64cdebb58534ba6cf82fd58697d12a55a11a3747b211f98d316a05fb59cd5b453af5305682dade835ec27666d7fe557156080ea645efb8
+"@types/node@npm:17.0.40":
+  version: 17.0.40
+  resolution: "@types/node@npm:17.0.40"
+  checksum: e3b2fe876672fbe4be84ce17773944eb2f5eaba50e2c6c0536bdf6d4972ed6488581580581f154183fdc8f2d56fa42a42e3d6e83b9b71ee25adea16a84765e92
   languageName: node
   linkType: hard
 
@@ -287,7 +287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^18.0.11":
+"@types/react@npm:*":
   version: 18.0.11
   resolution: "@types/react@npm:18.0.11"
   dependencies:
@@ -295,6 +295,17 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: a2138d6929c36a398b0b43eb815b4e67c4f15aeebbdf8b1959edac56b8662d7409020a00540369b4eb1054579b1e8c9549447ae9b0335d5d1ec4ed4e1be2d628
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.0.12":
+  version: 18.0.12
+  resolution: "@types/react@npm:18.0.12"
+  dependencies:
+    "@types/prop-types": "*"
+    "@types/scheduler": "*"
+    csstype: ^3.0.2
+  checksum: 526ea13b3adf7fe4b475e55b7426510a7861ef2910664a9014ef42cba0c699d5167dc378eb161e2ec26c07a3b6fde9b6bdcbbb6f4b5580612246bc289395ef03
   languageName: node
   linkType: hard
 
@@ -2030,8 +2041,8 @@ __metadata:
     "@headlessui/react": ^1.6.4
     "@heroicons/react": ^1.0.6
     "@tailwindcss/forms": ^0.5.2
-    "@types/node": 17.0.39
-    "@types/react": ^18.0.11
+    "@types/node": 17.0.40
+    "@types/react": ^18.0.12
     "@types/react-dom": ^18.0.5
     autoprefixer: ^10.4.7
     eslint: 8.17.0

@@ -14,7 +14,8 @@ module.exports = {
         },
       },
       rotate: {
-        270: "270deg",
+        120: "120deg",
+        240: "240deg",
         360: "360deg",
       },
     },

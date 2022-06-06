@@ -1,43 +1,78 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import LogoHorizontalDark from "../svgs/LogoHorizontalDark";
 import { useGlobal } from "../../context/global/Context";
+import MENU_DATA from "../../data/menu";
+import Image from "next/image";
+import crossImg from "../../../public/images/cross.png";
 
 interface Props {
   show: boolean;
   closeModal: () => void;
 }
 
-const MENU_DATA = [
-  {
-    name: "Inicio",
-    href: "home",
-  },
-  {
-    name: "Proyecto",
-    href: "hi",
-  },
-  {
-    name: "Nosotrxs",
-    href: "aboutUs",
-  },
-  {
-    name: "Apps",
-    href: "apps",
-  },
-  {
-    name: "Contacto",
-    href: "cta",
-  },
-];
-
 const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
   const { state } = useGlobal();
 
   const goTo = (indexSlide: number) => {
+    const containerModals = document.querySelector("#headlessui-portal-root");
+
+    if (
+      containerModals &&
+      containerModals.childElementCount >= 2 &&
+      containerModals.firstElementChild &&
+      state.swiperMaster
+    ) {
+      const actualSlide = MENU_DATA[state.swiperMaster.realIndex];
+      const actualSection = document.querySelector(`#${actualSlide.id}`);
+      actualSection?.classList.remove("opacity-0");
+      containerModals.removeChild(containerModals.firstElementChild);
+    }
     closeModal();
     state.swiperMaster?.slideTo(indexSlide);
   };
+
+  useEffect(() => {
+    let actualSection: null | HTMLDivElement = null;
+    let headerElement: null | Element = null;
+    let modalCtaElement: null | Element = null;
+    if (state.swiperMaster && show) {
+      const actualSlide = MENU_DATA[state.swiperMaster.realIndex];
+      actualSection = document.querySelector(`#${actualSlide.id}`);
+      headerElement = document.querySelector("header");
+      modalCtaElement = document.querySelector(".modal-cta");
+
+      if (actualSection && headerElement) {
+        actualSection.classList.add(
+          "transition-opacity",
+          "duration-300",
+          "opacity-0"
+        );
+        headerElement.classList.add(
+          "transition-opacity",
+          "duration-300",
+          "opacity-0"
+        );
+      }
+      if (modalCtaElement) {
+        modalCtaElement.classList.add(
+          "transition-opacity",
+          "duration-300",
+          "opacity-0"
+        );
+      }
+    }
+    return () => {
+      setTimeout(() => {
+        console.log({ a: actualSection && !modalCtaElement });
+        actualSection &&
+          !modalCtaElement &&
+          actualSection.classList.remove("opacity-0");
+        headerElement && headerElement.classList.remove("opacity-0");
+      }, 200);
+      modalCtaElement && modalCtaElement.classList.remove("opacity-0");
+    };
+  }, [show]);
 
   return (
     <Transition.Root show={show} as={Fragment}>
@@ -51,7 +86,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-utopicx-gray-dark transition-opacity" />
+          <div className="fixed inset-0 transition-opacity backdrop-blur-sm" />
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
@@ -68,18 +103,18 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative text-left overflow-hidden transform transition-all pb-4">
                 <button
                   type="button"
-                  className="absolute right-1 top-2 border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+                  className="absolute right-1 w-8 h-8 top-2 border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <p className="sr-only">Cerrar menu</p>
-                  <img src="/cross.png" alt="Cruz" />
+                  <Image src={crossImg} alt="Cruz" />
                 </button>
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mt-20 h-28 mx-auto mb-6" />
                 <nav>
                   <ul className="w-64 mx-auto space-y-8">
                     {MENU_DATA.map((section, i) => (
-                      <li key={`section-${section.name}`}>
+                      <li key={`section-${section.id}`}>
                         <button
                           className="text-utopicx-magenta font-bold text-3xl py-1 w-full rounded-bl-lg rounded-tr-lg border-2 border-utopicx-magenta px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
                           type="button"

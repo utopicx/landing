@@ -1,7 +1,9 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
 import Cross from "../svgs/Cross";
+import { useGlobal } from "../../context/global/Context";
+import MENU_DATA from "../../data/menu";
 
 interface Props {
   show: boolean;
@@ -15,15 +17,37 @@ interface Form {
 }
 
 const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
+  const { state } = useGlobal();
   const { register, handleSubmit } = useForm<Form>();
 
   const submit = () => {
     closeModal();
   };
 
+  useEffect(() => {
+    let actualSection: null | HTMLDivElement = null;
+
+    if (state.swiperMaster && show) {
+      const actualSlide = MENU_DATA[state.swiperMaster.realIndex];
+      actualSection = document.querySelector(`#${actualSlide.id}`);
+      if (actualSection) {
+        actualSection.classList.add(
+          "transition-opacity",
+          "duration-300",
+          "opacity-0"
+        );
+      }
+    }
+    return () => {
+      setTimeout(() => {
+        actualSection && actualSection.classList.remove("opacity-0");
+      }, 200);
+    };
+  }, [show]);
+
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => {}}>
+      <Dialog as="div" className="relative z-10 modal-cta" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -33,7 +57,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-utopicx-gray-dark transition-opacity" />
+          <div className="fixed inset-0 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
         <div className="fixed z-10 inset-0 overflow-y-auto">
