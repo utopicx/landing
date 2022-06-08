@@ -18,6 +18,9 @@ module.exports = {
         240: "240deg",
         360: "360deg",
       },
+      boxShadow: {
+        full: "0px 0px 13px 2px rgba(0,0,0,0.75)",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

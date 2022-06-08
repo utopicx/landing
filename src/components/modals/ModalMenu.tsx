@@ -5,6 +5,8 @@ import { useGlobal } from "../../context/global/Context";
 import MENU_DATA from "../../data/menu";
 import Image from "next/image";
 import crossImg from "../../../public/images/cross.png";
+import menuConection1Img from "../../../public/images/menu_conexion.png";
+import menuConection2Img from "../../../public/images/menu_conexion2.png";
 
 interface Props {
   show: boolean;
@@ -112,16 +114,34 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mt-20 h-28 mx-auto mb-6" />
                 <nav>
-                  <ul className="w-64 mx-auto space-y-8">
+                  <ul className="w-64 mx-auto space-y-4">
                     {MENU_DATA.map((section, i) => (
-                      <li key={`section-${section.id}`}>
+                      <li className="relative" key={`section-${section.id}`}>
                         <button
-                          className="text-utopicx-magenta font-bold text-3xl py-1 w-full rounded-bl-lg rounded-tr-lg border-2 border-utopicx-magenta px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+                          className="text-utopicx-magenta font-bold text-3xl w-full rounded-bl-lg rounded-tr-lg px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
                           type="button"
                           onClick={() => goTo(i)}
                         >
-                          {section.name}
+                          <span className="sr-only">{section.name}</span>
+                          <Image
+                            layout="responsive"
+                            src={section.imgSrc}
+                            alt={section.name}
+                          />
                         </button>
+                        {i + 1 !== MENU_DATA.length ? (
+                          <>
+                            {i % 2 ? (
+                              <div className="absolute -bottom-6 w-10 right-14">
+                                <Image src={menuConection2Img} alt="Conexion" />
+                              </div>
+                            ) : (
+                              <div className="absolute -bottom-6 w-10 left-14">
+                                <Image src={menuConection1Img} alt="Conexion" />
+                              </div>
+                            )}
+                          </>
+                        ) : null}
                       </li>
                     ))}
                   </ul>
