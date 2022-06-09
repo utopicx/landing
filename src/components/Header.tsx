@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import ModalMenu from "./modals/ModalMenu";
 import LogoMini from "./svgs/LogoMini";
-import classNames from "../utils/classNames";
 import BurgerImg from "../../public/images/burger.png";
 import Image from "next/image";
+import classNames from "../utils/classNames";
 
 const Header: React.FC = () => {
   const { state } = useGlobal();
@@ -58,27 +58,34 @@ const Header: React.FC = () => {
   }, [state.swiperMaster]);
 
   return (
-    <header className="flex justify-between items-center px-4 py-2 md:py-6 fixed z-20 top-0 w-screen">
+    <header className="fixed top-0 z-20 flex w-screen items-center justify-between px-4 py-2 lg:py-6">
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
-        className="border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-yellow focus:ring-offset-transparent"
+        className="border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-2 focus:ring-offset-transparent"
       >
         <span className="sr-only">Ir al inicio</span>
-        <LogoMini
-          ref={logoRef}
-          title="Utópicx"
-          className="w-12 h-12 md:w-16 md:h-16 duration-700 rotate-0 transition-transform transform-gpu"
-        />
+        <div
+          className={classNames(
+            state.isLogoPositioned ? "opacity-100" : "opacity-0",
+            "transition-opacity"
+          )}
+        >
+          <LogoMini
+            ref={logoRef}
+            title="Utópicx"
+            className="h-12 w-12 rotate-0 transform-gpu transition-transform duration-700 lg:h-16 lg:w-16"
+          />
+        </div>
       </button>
       <h2
         ref={subtitleRef}
-        className="text-2xl md:text-5xl text-utopicx-magenta font-bold wordGlitch md:h-14"
+        className="wordGlitch text-2xl font-bold text-utopicx-magenta lg:h-14 lg:text-5xl"
       >
         {state.section}
       </h2>
       <button
-        className="border border-transparent w-10 h-10 md:w-14 md:h-14 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+        className="h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent lg:h-14 lg:w-14"
         type="button"
         onClick={() => setShowMenu(true)}
       >

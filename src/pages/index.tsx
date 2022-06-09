@@ -45,7 +45,7 @@ const Index: NextPage = () => {
               inView &&
                 dispatch({
                   type: GlobalActionKind.SET_SECTION,
-                  payload: { section: "Inicio" },
+                  payload: { section: "" },
                 });
             }}
           >

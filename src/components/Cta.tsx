@@ -12,21 +12,21 @@ const Cta: React.FC = () => {
   return (
     <section
       id="cta"
-      className="flex flex-col justify-center items-center min-h-screen"
+      className="flex min-h-screen flex-col items-center justify-center"
     >
-      <LogoHorizontalDark className="h-32 md:h-64" />
-      <h3 className="-mt-2 mb-2 text-white font-medium text-2xl md:text-4xl md:-mt-10 md:mb-4">
+      <LogoHorizontalDark className="h-32 lg:h-64" />
+      <h3 className="-mt-2 mb-2 text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
         Comunicate con nosotrxs
       </h3>
       <button
         type="button"
         onClick={() => setShowModalCta(true)}
-        className="w-64 md:w-80 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-cyan focus:ring-offset-transparent"
+        className="w-64 focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-2 focus:ring-offset-transparent lg:w-80"
       >
         <Image src={btnContactoImg} alt="Comunicate" />
       </button>
       <a
-        className="text-white mt-1 md:text-2xl"
+        className="mt-1 text-white lg:text-2xl"
         href="mailto:equipo@utópicx.com"
       >
         equipo@utópicx.com
@@ -34,7 +34,7 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
-        className="mt-10 border border-transparent w-10 h-10 md:w-16 md:h-16 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-yellow focus:ring-offset-transparent"
+        className="mt-10 h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-2 focus:ring-offset-transparent lg:h-16 lg:w-16"
       >
         <p className="sr-only">Volver al comienzo</p>
         <Image

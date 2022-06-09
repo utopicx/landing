@@ -8,6 +8,7 @@ export const GlobalReducer = (
   switch (action.type) {
     case GlobalActionKind.SET_SECTION:
     case GlobalActionKind.SET_SWIPER_MASTER:
+    case GlobalActionKind.SET_IS_LOGO_POSITIONED:
       return {
         ...state,
         ...action.payload,

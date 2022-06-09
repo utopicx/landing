@@ -52,7 +52,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
 
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-10 modal-cta" onClose={() => {}}>
+      <Dialog as="div" className="modal-cta relative z-10" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -65,8 +65,8 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
           <div className="fixed inset-0 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed z-10 inset-0 overflow-y-auto">
-          <div className="flex items-center justify-center min-h-full px-10 py-4 text-center">
+        <div className="fixed inset-0 z-10 overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center px-10 py-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -76,10 +76,10 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative bg-transparent rounded-bl-lg rounded-tr-lg px-8 pt-5 pb-6 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-sm sm:w-full sm:p-6">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                 <button
                   type="button"
-                  className="absolute z-20 w-6 h-6 right-8 top-8 border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+                  className="absolute right-8 top-8 z-20 h-6 w-6 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Cerrar modal</span>
@@ -90,19 +90,19 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                     <div className="sm:mt-5">
                       <Dialog.Title
                         as="h3"
-                        className="text-3xl font-medium text-utopicx-cyan md:text-5xl"
+                        className="text-3xl font-medium text-utopicx-cyan lg:text-5xl"
                       >
                         Dejanos un comentario
                       </Dialog.Title>
                       <div>
-                        <p className="text-sm text-white md:text-xl">
+                        <p className="text-sm text-white lg:text-xl">
                           Queremos saber que opinias de nuestra fantabulosidad
                         </p>
                       </div>
                     </div>
                   </div>
                   <form
-                    className="mt-5 sm:mt-6 space-y-2"
+                    className="mt-5 space-y-2 sm:mt-6"
                     onSubmit={handleSubmit(submit)}
                   >
                     <div>
@@ -115,7 +115,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("name", { required: true })}
                           required
                           id="name"
-                          className="relative z-10 border-transparent placeholder:text-gray-100 md:text-xl text-white shadow-sm rounded-br-md rounded-tl-md rounded-bl-xl rounded-tr-xl bg-transparent focus:ring-2 focus:border-transparent focus:ring-utopicx-magenta block w-full sm:text-sm"
+                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-xl rounded-tr-xl border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Apodo o nombre "
                         />
                         <div className="absolute inset-0">
@@ -133,7 +133,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("email", { required: true })}
                           required
                           id="email"
-                          className="relative z-10 placeholder:text-gray-100 md:text-xl text-white shadow-sm rounded-bl-xl rounded-tr-xl bg-transparent block w-full sm:text-sm rounded-br-md rounded-tl-md focus:ring-2 focus:border-transparent focus:ring-utopicx-magenta border-transparent"
+                          className="relative z-10 block w-full rounded-bl-xl rounded-tr-xl rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Mail"
                         />
                         <div className="absolute inset-0">
@@ -151,7 +151,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 placeholder:text-gray-100 md:text-xl text-white shadow-sm rounded-bl-xl rounded-tr-xl bg-transparent block w-full sm:text-sm rounded-br-md rounded-tl-md focus:ring-2 focus:border-transparent focus:ring-utopicx-magenta border-transparent"
+                          className="relative z-10 block w-full rounded-bl-xl rounded-tr-xl rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />
@@ -166,7 +166,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                     </div>
                     <button
                       type="submit"
-                      className="block text-utopicx-cyan text-xl py-1 w-full font-medium rounded-bl-xl rounded-tr-xl focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-cyan focus:ring-offset-transparent"
+                      className="block w-full rounded-bl-xl rounded-tr-xl py-1 text-xl font-medium text-utopicx-cyan focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-2 focus:ring-offset-transparent"
                     >
                       <span className="sr-only">Enviar</span>
                       <Image
