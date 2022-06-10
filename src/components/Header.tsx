@@ -80,7 +80,7 @@ const Header: React.FC = () => {
       </button>
       <h2
         ref={subtitleRef}
-        className="wordGlitch text-2xl font-bold text-utopicx-magenta lg:h-14 lg:text-5xl"
+        className="wordGlitch text-2xl font-bold text-utopicx-cyan lg:h-14 lg:text-5xl"
       >
         {state.section}
       </h2>

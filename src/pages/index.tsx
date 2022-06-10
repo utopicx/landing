@@ -40,7 +40,7 @@ const Index: NextPage = () => {
           <InView
             as="div"
             className="h-screen"
-            threshold={0.4}
+            threshold={0.6}
             onChange={(inView) => {
               inView &&
                 dispatch({
@@ -56,7 +56,7 @@ const Index: NextPage = () => {
           <InView
             as="div"
             className="h-screen"
-            threshold={0.4}
+            threshold={0.6}
             onChange={(inView) => {
               inView &&
                 dispatch({
@@ -72,7 +72,7 @@ const Index: NextPage = () => {
           <InView
             as="div"
             className="h-screen"
-            threshold={0.4}
+            threshold={0.6}
             onChange={(inView) => {
               inView &&
                 dispatch({
@@ -88,7 +88,7 @@ const Index: NextPage = () => {
           <InView
             as="div"
             className="h-screen"
-            threshold={0.4}
+            threshold={0.6}
             onChange={(inView) => {
               inView &&
                 dispatch({
@@ -104,7 +104,7 @@ const Index: NextPage = () => {
           <InView
             as="div"
             className="h-screen"
-            threshold={0.4}
+            threshold={0.6}
             onChange={(inView) => {
               inView &&
                 dispatch({

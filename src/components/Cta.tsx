@@ -5,6 +5,8 @@ import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
 import Image from "next/image";
 import arrowDownImg from "../../public/images/arrowDown.png";
 import btnContactoImg from "../../public/images/btn_contacto.png";
+import LogoMiniAnimation from "./LogoMiniAnimation";
+import PatchLogo from "./PatchLogo";
 
 const Cta: React.FC = () => {
   const { state } = useGlobal();
@@ -14,7 +16,11 @@ const Cta: React.FC = () => {
       id="cta"
       className="flex min-h-screen flex-col items-center justify-center"
     >
-      <LogoHorizontalDark className="h-32 lg:h-64" />
+      <div className="relative">
+        <LogoHorizontalDark className="h-32 lg:h-64" />
+        <PatchLogo />
+        <LogoMiniAnimation isReverse />
+      </div>
       <h3 className="-mt-2 mb-2 text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
         Comunicate con nosotrxs
       </h3>

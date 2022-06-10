@@ -88,10 +88,10 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 transition-opacity backdrop-blur-sm" />
+          <div className="fixed inset-0 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed z-10 inset-0 overflow-y-auto">
+        <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="min-h-full p-4 text-center sm:p-0">
             <Transition.Child
               as={Fragment}
@@ -102,23 +102,23 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative text-left overflow-hidden transform transition-all pb-4">
+              <Dialog.Panel className="relative transform overflow-hidden pb-4 text-left transition-all">
                 <button
                   type="button"
-                  className="absolute right-1 w-8 h-8 top-2 border border-transparent focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+                  className="absolute right-1 top-2 h-8 w-8 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent lg:right-4 lg:top-8"
                   onClick={closeModal}
                 >
                   <p className="sr-only">Cerrar menu</p>
                   <Image src={crossImg} alt="Cruz" />
                 </button>
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
-                <LogoHorizontalDark className="mt-20 h-28 mx-auto mb-6" />
+                <LogoHorizontalDark className="mx-auto mt-20 mb-6 h-28 lg:h-52" />
                 <nav>
-                  <ul className="w-64 mx-auto space-y-4">
+                  <ul className="mx-auto w-64 space-y-4">
                     {MENU_DATA.map((section, i) => (
                       <li className="relative" key={`section-${section.id}`}>
                         <button
-                          className="text-utopicx-magenta font-bold text-3xl w-full rounded-bl-lg rounded-tr-lg px-6 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-utopicx-magenta focus:ring-offset-transparent"
+                          className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent"
                           type="button"
                           onClick={() => goTo(i)}
                         >
@@ -132,11 +132,11 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                         {i + 1 !== MENU_DATA.length ? (
                           <>
                             {i % 2 ? (
-                              <div className="absolute -bottom-6 w-10 right-14">
+                              <div className="absolute -bottom-6 right-14 w-10">
                                 <Image src={menuConection2Img} alt="Conexion" />
                               </div>
                             ) : (
-                              <div className="absolute -bottom-6 w-10 left-14">
+                              <div className="absolute -bottom-6 left-14 w-10">
                                 <Image src={menuConection1Img} alt="Conexion" />
                               </div>
                             )}

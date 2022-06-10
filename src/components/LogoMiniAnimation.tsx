@@ -8,7 +8,11 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { AJUST } from "../data/logoAnimationAjust";
 import Swiper from "swiper";
 
-const LogoMiniAnimation = () => {
+interface Props {
+  isReverse?: boolean;
+}
+
+const LogoMiniAnimation = ({ isReverse }: Props) => {
   const matchesIsTablet = useMediaQuery("(min-width:1024px)");
   const { state, dispatch } = useGlobal();
   const [styles, api] = useSpring(() => ({
@@ -22,6 +26,7 @@ const LogoMiniAnimation = () => {
   });
 
   useEffect(() => {
+    const progressStaticPosition = isReverse ? 1 : 0;
     const animationLogoProgress = (_swiper: Swiper, progress: number) => {
       api.start({
         transform: `translate(${
@@ -32,6 +37,7 @@ const LogoMiniAnimation = () => {
           matchesIsTablet ? 1 - (progress * 10 - 0.3) : 1
         }) scaleY(${matchesIsTablet ? 1 - (progress * 10 - 0.3) : 1})`,
       });
+      console.log({ a: new Number(progress).toPrecision(3) });
       if (
         !state.isLogoPositioned &&
         parseFloat(new Number(progress).toPrecision(3)) >=
@@ -41,7 +47,10 @@ const LogoMiniAnimation = () => {
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: true },
         });
-      } else if (state.isLogoPositioned && progress === 0) {
+      } else if (
+        state.isLogoPositioned &&
+        progress === progressStaticPosition
+      ) {
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: false },
@@ -68,9 +77,9 @@ const LogoMiniAnimation = () => {
 
   useEffect(() => {
     if (matchesIsTablet) {
-      setCurrentAjust(AJUST.tablet);
+      setCurrentAjust(isReverse ? AJUST.tablet.reverse : AJUST.tablet.normal);
     } else {
-      setCurrentAjust(AJUST.mobile);
+      setCurrentAjust(isReverse ? AJUST.mobile.reverse : AJUST.mobile.normal);
     }
   }, [matchesIsTablet]);
 

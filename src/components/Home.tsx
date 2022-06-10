@@ -3,6 +3,7 @@ import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
 import arrowDownImg from "../../public/images/arrowDown.png";
 import Image from "next/image";
 import LogoMiniAnimation from "./LogoMiniAnimation";
+import PatchLogo from "./PatchLogo";
 
 const Home: React.FC = () => {
   const { state } = useGlobal();
@@ -14,7 +15,7 @@ const Home: React.FC = () => {
     >
       <div className="relative">
         <LogoHorizontalDark className="h-32 lg:h-64" />
-        <div className="absolute top-[2.6rem] left-[5.3rem] h-[3.15rem] w-[3.25rem] bg-utopicx-gray-dark lg:top-[4.64rem] lg:left-[10.4rem] lg:h-28 lg:w-28" />
+        <PatchLogo />
         <LogoMiniAnimation />
       </div>
       <h1 className="sr-only">Utópicx</h1>
