@@ -10,7 +10,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <section className="bg-utopicx-gray-dark">
       <Seo />
       <Header />
-      <main className="h-screen relative">{children}</main>
+      <main className="relative h-screen">{children}</main>
     </section>
   );
 };

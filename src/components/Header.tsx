@@ -62,7 +62,7 @@ const Header: React.FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
-        className="border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-2 focus:ring-offset-transparent"
+        className="border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent"
       >
         <span className="sr-only">Ir al inicio</span>
         <div
@@ -80,12 +80,12 @@ const Header: React.FC = () => {
       </button>
       <h2
         ref={subtitleRef}
-        className="wordGlitch text-2xl font-bold text-utopicx-cyan lg:h-14 lg:text-5xl"
+        className="wordGlitch text-3xl font-bold text-utopicx-cyan lg:h-14 lg:text-5xl"
       >
         {state.section}
       </h2>
       <button
-        className="h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent lg:h-14 lg:w-14"
+        className="h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:h-14 lg:w-14"
         type="button"
         onClick={() => setShowMenu(true)}
       >

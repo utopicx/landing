@@ -27,7 +27,7 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => setShowModalCta(true)}
-        className="w-64 focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-2 focus:ring-offset-transparent lg:w-80"
+        className="w-64 focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
       >
         <Image src={btnContactoImg} alt="Comunicate" />
       </button>
@@ -40,7 +40,7 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
-        className="mt-10 h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-2 focus:ring-offset-transparent lg:h-16 lg:w-16"
+        className="mt-10 h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:h-16 lg:w-16"
       >
         <p className="sr-only">Volver al comienzo</p>
         <Image

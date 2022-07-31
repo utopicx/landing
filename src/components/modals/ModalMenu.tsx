@@ -105,7 +105,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative transform overflow-hidden pb-4 text-left transition-all">
                 <button
                   type="button"
-                  className="absolute right-1 top-2 h-8 w-8 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent lg:right-4 lg:top-8"
+                  className="absolute right-1 top-2 h-8 w-8 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:right-4 lg:top-8"
                   onClick={closeModal}
                 >
                   <p className="sr-only">Cerrar menu</p>
@@ -118,7 +118,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                     {MENU_DATA.map((section, i) => (
                       <li className="relative" key={`section-${section.id}`}>
                         <button
-                          className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-2 focus:ring-offset-transparent"
+                          className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                           type="button"
                           onClick={() => goTo(i)}
                         >

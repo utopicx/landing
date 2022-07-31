@@ -34,15 +34,17 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
         }px,${
           -(progress * currentAjust.YTraslateMustTop) * currentAjust.general
         }px) scaleX(${
-          matchesIsTablet ? 1 - (progress * 10 - 0.3) : 1
-        }) scaleY(${matchesIsTablet ? 1 - (progress * 10 - 0.3) : 1})`,
+          matchesIsTablet && progress !== 0 ? 1 - (progress * 10 - 0.3) : 1
+        }) scaleY(${
+          matchesIsTablet && progress !== 0 ? 1 - (progress * 10 - 0.3) : 1
+        })`,
       });
-      console.log({ a: new Number(progress).toPrecision(3) });
       if (
         !state.isLogoPositioned &&
         parseFloat(new Number(progress).toPrecision(3)) >=
           currentAjust.positionProgress
       ) {
+        console.log("positioned");
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: true },
@@ -51,6 +53,7 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
         state.isLogoPositioned &&
         progress === progressStaticPosition
       ) {
+        console.log("unpositioned");
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: false },
@@ -77,9 +80,9 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
 
   useEffect(() => {
     if (matchesIsTablet) {
-      setCurrentAjust(isReverse ? AJUST.tablet.reverse : AJUST.tablet.normal);
+      setCurrentAjust(AJUST.tablet.normal);
     } else {
-      setCurrentAjust(isReverse ? AJUST.mobile.reverse : AJUST.mobile.normal);
+      setCurrentAjust(AJUST.mobile.normal);
     }
   }, [matchesIsTablet]);
 
