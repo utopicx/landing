@@ -4,9 +4,9 @@ import LogoHorizontalDark from "../svgs/LogoHorizontalDark";
 import { useGlobal } from "../../context/global/Context";
 import MENU_DATA from "../../data/menu";
 import Image from "next/image";
-import crossImg from "../../../public/images/cross.png";
-import menuConection1Img from "../../../public/images/menu_conexion.png";
-import menuConection2Img from "../../../public/images/menu_conexion2.png";
+import crossImg from "../../../public/images/cruz.png";
+import menuConnection1Img from "../../../public/images/menu_conexion.png";
+import menuConnection2Img from "../../../public/images/menu_conexion2.png";
 
 interface Props {
   show: boolean;
@@ -17,18 +17,10 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
   const { state } = useGlobal();
 
   const goTo = (indexSlide: number) => {
-    const containerModals = document.querySelector("#headlessui-portal-root");
-
-    if (
-      containerModals &&
-      containerModals.childElementCount >= 2 &&
-      containerModals.firstElementChild &&
-      state.swiperMaster
-    ) {
+    if (state.swiperMaster) {
       const actualSlide = MENU_DATA[state.swiperMaster.realIndex];
       const actualSection = document.querySelector(`#${actualSlide.id}`);
       actualSection?.classList.remove("opacity-0");
-      containerModals.removeChild(containerModals.firstElementChild);
     }
     closeModal();
     state.swiperMaster?.slideTo(indexSlide);
@@ -66,7 +58,6 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
     }
     return () => {
       setTimeout(() => {
-        console.log({ a: actualSection && !modalCtaElement });
         actualSection &&
           !modalCtaElement &&
           actualSection.classList.remove("opacity-0");
@@ -114,37 +105,51 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mx-auto mt-20 mb-6 h-28 lg:h-52" />
                 <nav>
-                  <ul className="mx-auto w-64 space-y-4">
-                    {MENU_DATA.map((section, i) => (
-                      <li className="relative" key={`section-${section.id}`}>
-                        <button
-                          className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
-                          type="button"
-                          onClick={() => goTo(i)}
-                        >
-                          <span className="sr-only">{section.name}</span>
-                          <Image
-                            layout="responsive"
-                            src={section.imgSrc}
-                            alt={section.name}
-                          />
-                        </button>
-                        {i + 1 !== MENU_DATA.length ? (
-                          <>
-                            {i % 2 ? (
-                              <div className="absolute -bottom-6 right-14 w-10">
-                                <Image src={menuConection2Img} alt="Conexion" />
-                              </div>
-                            ) : (
-                              <div className="absolute -bottom-6 left-14 w-10">
-                                <Image src={menuConection1Img} alt="Conexion" />
-                              </div>
-                            )}
-                          </>
-                        ) : null}
-                      </li>
-                    ))}
-                  </ul>
+                  <Transition.Child
+                    className="mx-auto w-64 space-y-4"
+                    as="ul"
+                    enter="ease-in duration-1000"
+                    enterFrom="max-h-0 duration-1000"
+                    enterTo="max-h-96 duration-1000"
+                  >
+                    {MENU_DATA.map((section, i) => {
+                      return (
+                        <li className="relative" key={`section-${section.id}`}>
+                          <button
+                            className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                            type="button"
+                            onClick={() => goTo(i)}
+                          >
+                            <span className="sr-only">{section.name}</span>
+                            <Image
+                              layout="responsive"
+                              src={section.imgSrc}
+                              alt={section.name}
+                            />
+                          </button>
+                          {i + 1 !== MENU_DATA.length ? (
+                            <>
+                              {i % 2 ? (
+                                <div className="absolute -bottom-6 right-14 w-10">
+                                  <Image
+                                    src={menuConnection2Img}
+                                    alt="Conexion"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="absolute -bottom-6 left-14 w-10">
+                                  <Image
+                                    src={menuConnection1Img}
+                                    alt="Conexion"
+                                  />
+                                </div>
+                              )}
+                            </>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </Transition.Child>
                 </nav>
               </Dialog.Panel>
             </Transition.Child>

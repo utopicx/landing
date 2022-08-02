@@ -6,7 +6,7 @@ import MENU_DATA from "../../data/menu";
 import Image from "next/image";
 import btnSendImg from "../../../public/images/btn_enviar.png";
 import bgFormBorderImg from "../../../public/images/form_marco.png";
-import crossImg from "../../../public/images/cross.png";
+import crossImg from "../../../public/images/cruz.png";
 import bgFormLabelImg from "../../../public/images/form_label.png";
 import bgFormCommentImg from "../../../public/images/form_comentarios.png";
 
@@ -31,12 +31,21 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
 
   useEffect(() => {
     let actualSection: null | HTMLDivElement = null;
+    let titleElement: null | Element = null;
 
     if (state.swiperMaster && show) {
       const actualSlide = MENU_DATA[state.swiperMaster.realIndex];
       actualSection = document.querySelector(`#${actualSlide.id}`);
-      if (actualSection) {
+      titleElement = document.querySelector("#title");
+
+      if (actualSection && titleElement) {
         actualSection.classList.add(
+          "transition-opacity",
+          "duration-300",
+          "opacity-0"
+        );
+        titleElement.classList.remove("wordGlitch");
+        titleElement.classList.add(
           "transition-opacity",
           "duration-300",
           "opacity-0"
@@ -46,13 +55,29 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
     return () => {
       setTimeout(() => {
         actualSection && actualSection.classList.remove("opacity-0");
+        if (titleElement) {
+          titleElement.classList.remove(
+            "opacity-0",
+            "transition-opacity",
+            "duration-300"
+          );
+          titleElement.classList.add("wordGlitch");
+        }
       }, 200);
     };
   }, [show]);
 
+  useEffect(() => {
+    if (state.swiperMaster && show) {
+      state.swiperMaster.on("slideChange", () => {
+        closeModal();
+      });
+    }
+  }, [show, state.swiperMaster]);
+
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="modal-cta relative z-10" onClose={() => {}}>
+      <Dialog as="div" className="relative z-10" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -65,7 +90,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
           <div className="fixed inset-0 backdrop-blur-sm transition-opacity" />
         </Transition.Child>
 
-        <div className="fixed inset-0 z-10 overflow-y-auto">
+        <div className="modal-cta fixed inset-0 z-10 overflow-y-auto ">
           <div className="flex min-h-full items-center justify-center px-10 py-4 text-center">
             <Transition.Child
               as={Fragment}
@@ -76,7 +101,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
                 <button
                   type="button"
                   className="absolute right-8 top-8 z-20 h-6 w-6 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"

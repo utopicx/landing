@@ -20,26 +20,18 @@
   @apply lg:h-8 lg:w-16 !important;
 }
 
-.swiper-button-prev {
-  @apply lg:left-28 !important;
-}
-
-.swiper-button-next {
-  @apply lg:right-28 !important;
-}
-
 .swiper-button-next::after,
 .swiper-button-prev::after {
-  @apply h-full w-full -rotate-90 bg-contain bg-no-repeat;
+  @apply h-full w-full bg-contain bg-no-repeat lg:hidden;
   font-size: 0px !important;
-  background-image: url("../../public/images/arrowDown.png");
+  background-image: url("../../public/images/flecha.png");
 }
 
 .swiper-button-next::after {
-  @apply -rotate-90;
+  @apply rotate-90;
 }
 .swiper-button-prev::after {
-  @apply rotate-90;
+  @apply -rotate-90;
 }
 
 /* Glitch */

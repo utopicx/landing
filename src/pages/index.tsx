@@ -33,7 +33,7 @@ const Index: NextPage = () => {
             payload: { swiperMaster: swiper },
           })
         }
-        parallax={true}
+        parallax
       >
         <BgParallax />
         <SwiperSlide>

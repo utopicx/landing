@@ -1,6 +1,6 @@
 import { useGlobal } from "../context/global/Context";
 import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
-import arrowDownImg from "../../public/images/arrowDown.png";
+import arrowTopImg from "../../public/images/flecha.png";
 import Image from "next/image";
 import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
@@ -29,10 +29,11 @@ const Home: React.FC = () => {
       >
         <p className="sr-only">Siguiente pantalla</p>
         <Image
+          className="rotate-180"
           objectFit="contain"
           height="100%"
           width="100%"
-          src={arrowDownImg}
+          src={arrowTopImg}
           alt="Flecha hacia abajo"
         />
       </button>

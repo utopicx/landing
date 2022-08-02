@@ -22,6 +22,12 @@ module.exports = {
       boxShadow: {
         full: "0px 0px 13px 2px rgba(0,0,0,0.75)",
       },
+      // transitionDelay: {
+      //   1700: "1700ms",
+      // },
+      // transitionDuration: {
+      //   ""
+      // }
     },
   },
   plugins: [require("@tailwindcss/forms")],

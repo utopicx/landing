@@ -1,12 +1,31 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type SwiperType from "swiper";
 import { Navigation } from "swiper";
 import usBorderImg from "../../public/images/nosotrxs_marco.png";
+import arrowTop from "../../public/images/flecha.png";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { useEffect, useState } from "react";
+
+const PERSONS = Array.from(Array(6).keys());
 
 const AboutUs: React.FC = () => {
+  const [stateSwiper, setStateSwiper] = useState<{
+    currentSlide: number;
+    swiper: SwiperType;
+  }>();
+
+  useEffect(() => {
+    stateSwiper?.swiper?.on("slideChange", (swiper) => {
+      setStateSwiper({
+        ...stateSwiper,
+        currentSlide: swiper.activeIndex + 1,
+      });
+    });
+  }, [stateSwiper?.swiper]);
+
   return (
     <section
       id="aboutUs"
@@ -15,96 +34,82 @@ const AboutUs: React.FC = () => {
       <h2 className="sr-only text-center text-4xl font-bold text-utopicx-cyan">
         Nosotrxs
       </h2>
-      <Swiper className="swiper-us" navigation modules={[Navigation]}>
-        <SwiperSlide>
-          <div className="lg:flex lg:justify-center lg:gap-x-4 lg:py-4">
-            <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:mx-0 lg:mt-0 lg:h-96 lg:w-72">
-              <div className="absolute inset-0">
-                <Image layout="fill" src={usBorderImg} alt="Borde " />
+      <Swiper
+        className="swiper-us lg:!mx-14"
+        navigation
+        modules={[Navigation]}
+        breakpoints={{
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
+        onSwiper={(swiperLocal) =>
+          setStateSwiper({
+            currentSlide: 0,
+            swiper: swiperLocal,
+          })
+        }
+      >
+        {PERSONS.map((i) => (
+          <SwiperSlide key={`aboutUs-${i}`}>
+            <div>
+              <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:h-80 lg:w-64">
+                <div className="absolute inset-0">
+                  <Image layout="fill" src={usBorderImg} alt="Borde " />
+                </div>
+                <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
               </div>
-              <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
-            </div>
-            <div className="px-14 lg:flex lg:flex-col lg:justify-center lg:px-0">
-              <h3 className="relative z-10 -mt-3 text-4xl font-bold text-utopicx-magenta lg:mt-0 lg:text-7xl">
-                Apodo
-              </h3>
-              <p className="my-3 font-bold italic text-white lg:text-3xl">
-                Mega rol
-              </p>
-              <p className="w-52 font-light text-white lg:text-lg">
-                Super mega descripción de cada unx, que somos super geniales y
-                sexys.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="lg:flex lg:justify-center lg:gap-x-4 lg:py-4">
-            <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:mx-0 lg:mt-0 lg:h-96 lg:w-72">
-              <div className="absolute inset-0">
-                <Image layout="fill" src={usBorderImg} alt="Borde " />
+              <div className="mx-auto -mt-1 px-14 lg:mx-auto lg:-mt-2 lg:w-64 lg:px-0">
+                <div className="lg:-ml-4">
+                  <h3 className="relative z-10 text-4xl font-bold text-utopicx-magenta lg:text-6xl">
+                    Apodo
+                  </h3>
+                  <p className="my-3 font-bold italic text-white lg:my-1 lg:text-2xl">
+                    Mega rol
+                  </p>
+                  <p className="w-52 font-light text-white lg:w-full lg:pr-6 lg:text-lg">
+                    Super mega descripción de cada unx, que somos super geniales
+                    y sexys.
+                  </p>
+                </div>
               </div>
-              <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
             </div>
-            <div className="px-14 lg:flex lg:flex-col lg:justify-center lg:px-0">
-              <h3 className="relative z-10 -mt-3 text-4xl font-bold text-utopicx-magenta lg:mt-0 lg:text-7xl">
-                Apodo
-              </h3>
-              <p className="my-3 font-bold italic text-white lg:text-3xl">
-                Mega rol
-              </p>
-              <p className="w-52 font-light text-white lg:text-lg">
-                Super mega descripción de cada unx, que somos super geniales y
-                sexys.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>{" "}
-        <SwiperSlide>
-          <div className="lg:flex lg:justify-center lg:gap-x-4 lg:py-4">
-            <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:mx-0 lg:mt-0 lg:h-96 lg:w-72">
-              <div className="absolute inset-0">
-                <Image layout="fill" src={usBorderImg} alt="Borde " />
-              </div>
-              <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
-            </div>
-            <div className="px-14 lg:flex lg:flex-col lg:justify-center lg:px-0">
-              <h3 className="relative z-10 -mt-3 text-4xl font-bold text-utopicx-magenta lg:mt-0 lg:text-7xl">
-                Apodo
-              </h3>
-              <p className="my-3 font-bold italic text-white lg:text-3xl">
-                Mega rol
-              </p>
-              <p className="w-52 font-light text-white lg:text-lg">
-                Super mega descripción de cada unx, que somos super geniales y
-                sexys.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="lg:flex lg:justify-center lg:gap-x-4 lg:py-4">
-            <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:mx-0 lg:mt-0 lg:h-96 lg:w-72">
-              <div className="absolute inset-0">
-                <Image layout="fill" src={usBorderImg} alt="Borde " />
-              </div>
-              <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
-            </div>
-            <div className="px-14 lg:flex lg:flex-col lg:justify-center lg:px-0">
-              <h3 className="relative z-10 -mt-3 text-4xl font-bold text-utopicx-magenta lg:mt-0 lg:text-7xl">
-                Apodo
-              </h3>
-              <p className="my-3 font-bold italic text-white lg:text-3xl">
-                Mega rol
-              </p>
-              <p className="w-52 font-light text-white lg:text-lg">
-                Super mega descripción de cada unx, que somos super geniales y
-                sexys.
-              </p>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
+      <div className="hidden lg:flex lg:h-full lg:items-center">
+        <button
+          className="z-16 absolute left-2 h-14 w-14 disabled:opacity-50"
+          disabled={
+            stateSwiper?.currentSlide === 1 || stateSwiper?.currentSlide === 0
+          }
+          onClick={() => stateSwiper?.swiper?.slidePrev()}
+        >
+          <Image
+            width="100%"
+            height="100%"
+            objectFit="contain"
+            className="-rotate-90"
+            src={arrowTop}
+            alt="Arrow"
+          />
+        </button>
+      </div>
+      <div className="hidden lg:flex lg:h-full lg:items-center">
+        <button
+          className="absolute right-2 z-20 h-14 w-14 disabled:opacity-50"
+          disabled={stateSwiper?.currentSlide === PERSONS.length - 2}
+          onClick={() => stateSwiper?.swiper?.slideNext()}
+        >
+          <Image
+            width="100%"
+            height="100%"
+            objectFit="contain"
+            className="rotate-90"
+            src={arrowTop}
+          />
+        </button>
+      </div>
     </section>
   );
 };

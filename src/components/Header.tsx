@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import ModalMenu from "./modals/ModalMenu";
 import LogoMini from "./svgs/LogoMini";
-import BurgerImg from "../../public/images/burger.png";
+import BurgerImg from "../../public/images/btn_menu.png";
 import Image from "next/image";
 import classNames from "../utils/classNames";
 
@@ -80,6 +80,7 @@ const Header: React.FC = () => {
       </button>
       <h2
         ref={subtitleRef}
+        id="title"
         className="wordGlitch text-3xl font-bold text-utopicx-cyan lg:h-14 lg:text-5xl"
       >
         {state.section}
