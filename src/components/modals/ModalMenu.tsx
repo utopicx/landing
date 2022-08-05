@@ -1,12 +1,14 @@
 import { Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import Image from "next/image";
 import LogoHorizontalDark from "../svgs/LogoHorizontalDark";
 import { useGlobal } from "../../context/global/Context";
 import MENU_DATA from "../../data/menu";
-import Image from "next/image";
 import crossImg from "../../../public/images/cruz.png";
 import menuConnection1Img from "../../../public/images/menu_conexion.png";
 import menuConnection2Img from "../../../public/images/menu_conexion2.png";
+import menuConnectionDesktopLeft from "../../../public/images/conexion_tablet1.png";
+import menuConnectionDesktopRight from "../../../public/images/conexion_tablet2.png";
 
 interface Props {
   show: boolean;
@@ -15,6 +17,7 @@ interface Props {
 
 const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
   const { state } = useGlobal();
+  const menuDesktopLeft = MENU_DATA.filter((_, i) => !(i % 2));
 
   const goTo = (indexSlide: number) => {
     if (state.swiperMaster) {
@@ -104,17 +107,19 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                 </button>
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mx-auto mt-20 mb-6 h-28 lg:h-52" />
-                <nav>
+                <nav className="mx-auto w-64 space-y-4 lg:hidden">
                   <Transition.Child
-                    className="mx-auto w-64 space-y-4"
                     as="ul"
                     enter="ease-in duration-1000"
-                    enterFrom="max-h-0 duration-1000"
-                    enterTo="max-h-96 duration-1000"
+                    enterFrom="max-h-0"
+                    enterTo="max-h-96"
                   >
                     {MENU_DATA.map((section, i) => {
                       return (
-                        <li className="relative" key={`section-${section.id}`}>
+                        <li
+                          className="relative"
+                          key={`section-mobile-${section.id}`}
+                        >
                           <button
                             className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                             type="button"
@@ -148,9 +153,90 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                           ) : null}
                         </li>
                       );
-                    })}
+                    })}{" "}
                   </Transition.Child>
                 </nav>
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-in duration-1000"
+                  enterFrom="max-h-0"
+                  enterTo="max-h-96"
+                >
+                  <nav className="hidden lg:block">
+                    <ul className="mx-auto flex w-[32rem] items-center gap-x-8">
+                      <li className="w-full">
+                        <ul className="space-y-8">
+                          {menuDesktopLeft.map((section, i) => {
+                            return (
+                              <li
+                                className="relative"
+                                key={`section-desktop-${section.id}`}
+                              >
+                                <button
+                                  className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                                  type="button"
+                                  onClick={() => goTo(i)}
+                                >
+                                  <span className="sr-only">
+                                    {section.name}
+                                  </span>
+                                  <Image
+                                    layout="responsive"
+                                    src={section.imgSrc}
+                                    alt={section.name}
+                                  />
+                                </button>
+                                {menuDesktopLeft.length - 1 !== i ? (
+                                  <div className="absolute -bottom-6 -right-[2.25rem] w-20">
+                                    <Image
+                                      src={menuConnectionDesktopLeft}
+                                      alt="Conexion"
+                                    />
+                                  </div>
+                                ) : null}
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </li>
+                      <li className="h-full w-full">
+                        <ul className="space-y-8">
+                          {MENU_DATA.filter((_, i) => i % 2).map(
+                            (section, i) => {
+                              return (
+                                <li
+                                  className="relative"
+                                  key={`section-desktop-${section.id}`}
+                                >
+                                  <button
+                                    className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                                    type="button"
+                                    onClick={() => goTo(i)}
+                                  >
+                                    <span className="sr-only">
+                                      {section.name}
+                                    </span>
+                                    <Image
+                                      layout="responsive"
+                                      src={section.imgSrc}
+                                      alt={section.name}
+                                    />
+                                  </button>
+                                  <div className="absolute -bottom-6 -left-[2.1rem] w-20">
+                                    <Image
+                                      src={menuConnectionDesktopRight}
+                                      alt="Conexion"
+                                    />
+                                  </div>
+                                </li>
+                              );
+                            }
+                          )}
+                        </ul>
+                      </li>
+                    </ul>
+                  </nav>
+                </Transition.Child>
               </Dialog.Panel>
             </Transition.Child>
           </div>

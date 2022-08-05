@@ -1,9 +1,9 @@
 import { Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 import { useGlobal } from "../../context/global/Context";
 import MENU_DATA from "../../data/menu";
-import Image from "next/image";
 import btnSendImg from "../../../public/images/btn_enviar.png";
 import bgFormBorderImg from "../../../public/images/form_marco.png";
 import crossImg from "../../../public/images/cruz.png";
@@ -140,7 +140,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("name", { required: true })}
                           required
                           id="name"
-                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-xl rounded-tr-xl border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-[1.25rem] rounded-tr-[1.25rem] border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Apodo o nombre "
                         />
                         <div className="absolute inset-0">
@@ -158,7 +158,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("email", { required: true })}
                           required
                           id="email"
-                          className="relative z-10 block w-full rounded-bl-xl rounded-tr-xl rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-tr-[1.25rem] rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Mail"
                         />
                         <div className="absolute inset-0">
@@ -176,7 +176,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 block w-full rounded-bl-xl rounded-tr-xl rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />
@@ -191,7 +191,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                     </div>
                     <button
                       type="submit"
-                      className="block w-full rounded-bl-xl rounded-tr-xl py-1 text-xl font-medium text-utopicx-cyan focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent"
+                      className="block w-full rounded-bl-2xl rounded-tl-lg rounded-br-lg rounded-tr-2xl border border-transparent py-1 text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent"
                     >
                       <span className="sr-only">Enviar</span>
                       <Image
