@@ -9,26 +9,31 @@ const MENU_DATA = [
     name: "Inicio",
     id: "home",
     imgSrc: btnMenuHomeImg,
+    order: 0,
   },
   {
     name: "Proyecto",
     id: "hi",
     imgSrc: btnMenuProyectImg,
+    order: 1,
   },
   {
     name: "Nosotrxs",
     id: "aboutUs",
     imgSrc: btnMenuUsImg,
+    order: 2,
   },
   {
     name: "Apps",
     id: "apps",
     imgSrc: btnMenuAppsImg,
+    order: 3,
   },
   {
     name: "Contacto",
     id: "cta",
     imgSrc: btnMenuContactImg,
+    order: 4,
   },
 ];
 

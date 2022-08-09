@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, FC } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import LogoHorizontalDark from "../svgs/LogoHorizontalDark";
@@ -15,7 +15,7 @@ interface Props {
   closeModal: () => void;
 }
 
-const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
+const ModalMenu: FC<Props> = ({ show, closeModal }) => {
   const { state } = useGlobal();
   const menuDesktopLeft = MENU_DATA.filter((_, i) => !(i % 2));
 
@@ -123,7 +123,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                           <button
                             className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                             type="button"
-                            onClick={() => goTo(i)}
+                            onClick={() => goTo(section.order)}
                           >
                             <span className="sr-only">{section.name}</span>
                             <Image
@@ -175,7 +175,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                                 <button
                                   className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                                   type="button"
-                                  onClick={() => goTo(i)}
+                                  onClick={() => goTo(section.order)}
                                 >
                                   <span className="sr-only">
                                     {section.name}
@@ -211,7 +211,7 @@ const ModalMenu: React.FC<Props> = ({ show, closeModal }) => {
                                   <button
                                     className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                                     type="button"
-                                    onClick={() => goTo(i)}
+                                    onClick={() => goTo(section.order)}
                                   >
                                     <span className="sr-only">
                                       {section.name}

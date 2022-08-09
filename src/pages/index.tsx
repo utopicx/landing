@@ -34,6 +34,7 @@ const Index: NextPage = () => {
           })
         }
         parallax
+        grabCursor
       >
         <BgParallax />
         <SwiperSlide>

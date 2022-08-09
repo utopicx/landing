@@ -52,14 +52,14 @@ const AboutUs: React.FC = () => {
       >
         {PERSONS.map((i) => (
           <SwiperSlide key={`aboutUs-${i}`}>
-            <div>
-              <div className="relative mx-auto mt-8 h-80 w-56 rounded-md lg:h-80 lg:w-64">
+            <div className="md:flex md:items-center md:gap-x-4 md:pb-8 lg:block lg:pb-0">
+              <div className="relative mx-auto mt-8 h-80 w-56 rounded-md md:mr-0 lg:mr-auto lg:h-80 lg:w-64">
                 <div className="absolute inset-0">
                   <Image layout="fill" src={usBorderImg} alt="Borde " />
                 </div>
                 <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
               </div>
-              <div className="mx-auto -mt-1 px-14 lg:mx-auto lg:-mt-2 lg:w-64 lg:px-0">
+              <div className="mx-auto -mt-1 px-14 md:ml-0 md:px-0 lg:ml-auto lg:-mt-2 lg:w-64">
                 <div className="lg:-ml-4">
                   <h3 className="relative z-10 text-4xl font-bold text-utopicx-magenta lg:text-6xl">
                     Apodo
