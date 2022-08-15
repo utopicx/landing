@@ -21,7 +21,7 @@ const Apps: React.FC = () => {
                 Alta previa
               </h3>
             </div>
-            <p className="my-3 text-left text-white lg:my-0 lg:text-2xl">
+            <p className="my-3 text-left font-redhat text-white lg:my-0 lg:text-2xl">
               Super mega descripción de nuestras apps y de lo extra fantabulosas
               que son.
             </p>

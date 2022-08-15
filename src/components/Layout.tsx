@@ -7,7 +7,7 @@ interface Props {
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <section className="bg-utopicx-gray-dark">
+    <section className="bg-utopicx-gray-dark font-ubuntu">
       <Seo />
       <Header />
       <main className="relative h-screen">{children}</main>

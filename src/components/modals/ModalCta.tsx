@@ -120,7 +120,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                         Dejanos un comentario
                       </Dialog.Title>
                       <div>
-                        <p className="text-sm text-white lg:text-xl">
+                        <p className="font-redhat text-sm text-white lg:text-xl">
                           Queremos saber que opinias de nuestra fantabulosidad
                         </p>
                       </div>
@@ -140,7 +140,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("name", { required: true })}
                           required
                           id="name"
-                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-[1.25rem] rounded-tr-[1.25rem] border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-[1.25rem] rounded-tr-[1.25rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Apodo o nombre "
                         />
                         <div className="absolute inset-0">
@@ -158,7 +158,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("email", { required: true })}
                           required
                           id="email"
-                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-tr-[1.25rem] rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-tr-[1.25rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Mail"
                         />
                         <div className="absolute inset-0">
@@ -176,7 +176,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 block w-full rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />

@@ -21,7 +21,7 @@ const Cta: React.FC = () => {
         <PatchLogo />
         <LogoMiniAnimation isReverse />
       </div>
-      <h3 className="-mt-2 mb-2 text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
+      <h3 className="-mt-2 mb-2 font-redhat text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
         Comunicate con nosotrxs
       </h3>
       <button
@@ -32,7 +32,7 @@ const Cta: React.FC = () => {
         <Image src={btnContactoImg} alt="Comunicate" />
       </button>
       <a
-        className="mt-1 text-white lg:text-2xl"
+        className="mt-1 font-redhat text-white lg:text-2xl"
         href="mailto:equipo@utópicx.com"
       >
         equipo@utópicx.com

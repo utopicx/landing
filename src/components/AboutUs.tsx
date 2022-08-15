@@ -64,10 +64,10 @@ const AboutUs: React.FC = () => {
                   <h3 className="relative z-10 text-4xl font-bold text-utopicx-magenta lg:text-6xl">
                     Apodo
                   </h3>
-                  <p className="my-3 font-bold italic text-white lg:my-1 lg:text-2xl">
+                  <p className="my-3 font-redhat font-bold italic text-white lg:my-1 lg:text-2xl">
                     Mega rol
                   </p>
-                  <p className="w-52 font-light text-white lg:w-full lg:pr-6 lg:text-lg">
+                  <p className="w-52 font-redhat font-light text-white lg:w-full lg:pr-6 lg:text-lg">
                     Super mega descripción de cada unx, que somos super geniales
                     y sexys.
                   </p>
