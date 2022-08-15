@@ -10,11 +10,11 @@ import Layout from "../components/Layout";
 import { GlobalActionKind } from "../context/global/actions";
 import { useGlobal } from "../context/global/Context";
 import { A11y, Parallax } from "swiper";
+import BgParallax from "../components/BgParallax";
 
 import "swiper/css";
 import "swiper/css/parallax";
 import "swiper/css/a11y";
-import BgParallax from "../components/BgParallax";
 
 const Index: NextPage = () => {
   const { dispatch } = useGlobal();

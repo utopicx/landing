@@ -91,7 +91,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
         </Transition.Child>
 
         <div className="modal-cta fixed inset-0 z-10 overflow-y-auto ">
-          <div className="flex min-h-full items-center justify-center px-10 py-4 text-center">
+          <div className="flex h-screen items-center justify-center px-10 py-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -104,7 +104,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
                 <button
                   type="button"
-                  className="absolute right-8 top-8 z-20 h-6 w-6 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                  className="absolute right-8 top-8 z-30 h-6 w-6 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Cerrar modal</span>

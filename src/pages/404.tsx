@@ -3,9 +3,9 @@ import Link from "next/link";
 const Page404 = () => {
   return (
     <main className="relative flex min-h-screen flex-col overflow-hidden">
-      {/*<video autoPlay loop muted className="min-h-screen w-full object-cover">*/}
-      {/*  <source src="/videos/1.mp4" type="video/mp4" />*/}
-      {/*</video>*/}
+      <video autoPlay loop muted className="min-h-screen w-full object-cover">
+        <source src="/videos/space.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 flex items-center">
         <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 sm:py-24 lg:px-8 lg:py-48">
           <p className="text-sm font-semibold uppercase tracking-wide text-black">

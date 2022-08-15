@@ -130,6 +130,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                               layout="responsive"
                               src={section.imgSrc}
                               alt={section.name}
+                              priority
                             />
                           </button>
                           {i + 1 !== MENU_DATA.length ? (
@@ -139,6 +140,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                   <Image
                                     src={menuConnection2Img}
                                     alt="Conexion"
+                                    priority
                                   />
                                 </div>
                               ) : (
@@ -146,6 +148,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                   <Image
                                     src={menuConnection1Img}
                                     alt="Conexion"
+                                    priority
                                   />
                                 </div>
                               )}
@@ -184,6 +187,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                     layout="responsive"
                                     src={section.imgSrc}
                                     alt={section.name}
+                                    priority
                                   />
                                 </button>
                                 {menuDesktopLeft.length - 1 !== i ? (
@@ -191,6 +195,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                     <Image
                                       src={menuConnectionDesktopLeft}
                                       alt="Conexion"
+                                      priority
                                     />
                                   </div>
                                 ) : null}
@@ -220,12 +225,14 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                       layout="responsive"
                                       src={section.imgSrc}
                                       alt={section.name}
+                                      priority
                                     />
                                   </button>
                                   <div className="absolute -bottom-6 -left-[2.1rem] w-20">
                                     <Image
                                       src={menuConnectionDesktopRight}
                                       alt="Conexion"
+                                      priority
                                     />
                                   </div>
                                 </li>

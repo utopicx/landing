@@ -13,11 +13,11 @@ const Apps: React.FC = () => {
           Apps
         </h2>
         <div className="md:mt-4 md:grid md:grid-cols-2">
-          <div className="mx-auto mt-8 h-72 w-56 rounded-bl-lg rounded-tr-lg bg-gray-600 bg-opacity-95 md:mt-0 md:mr-0" />
+          <div className="mx-auto mt-8 h-72 w-56 rounded-bl-lg rounded-tr-lg bg-gray-600 bg-opacity-95 md:mt-0 md:mr-0 lg:h-80 lg:w-60" />
           <div className="mx-2 -mt-4 md:mt-0 md:flex md:flex-col md:justify-between md:pr-32 lg:pr-0">
             <div className="flex items-center md:mx-0">
               {/*<div className="h-12 w-12 bg-gray-600 shadow" />*/}
-              <h3 className="text-4xl font-bold text-utopicx-magenta lg:text-6xl">
+              <h3 className="text-4xl font-bold text-utopicx-magenta lg:text-7xl lg:leading-[4rem]">
                 Alta previa
               </h3>
             </div>

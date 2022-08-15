@@ -44,7 +44,6 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
         parseFloat(new Number(progress).toPrecision(3)) >=
           currentAjust.positionProgress
       ) {
-        console.log("positioned");
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: true },
@@ -53,7 +52,6 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
         state.isLogoPositioned &&
         progress === progressStaticPosition
       ) {
-        console.log("unpositioned");
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
           payload: { isLogoPositioned: false },
@@ -90,13 +88,13 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
     <animated.div
       className={classNames(
         state.isLogoPositioned ? "opacity-0" : "opacity-100",
-        "absolute top-[2.6rem] left-[5.4rem] lg:top-[4.64rem] lg:left-[10.4rem]"
+        "absolute top-[2.6rem] left-[5.4rem] lg:top-[4.7rem] lg:left-[10.8rem]"
       )}
       style={styles}
     >
       <LogoMini
         title="Utópicx"
-        className="h-[3.15rem] w-[3.15rem] lg:h-28 lg:w-28"
+        className="h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"
       />
     </animated.div>
   );
