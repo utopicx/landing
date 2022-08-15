@@ -2790,6 +2790,7 @@ __metadata:
     eslint-config-next: 12.2.5
     next: 12.2.5
     postcss: ^8.4.16
+    powerglitch: ^1.1.0
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.13
     react: 18.2.0
@@ -3564,6 +3565,13 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 10eee25efd77868036403858577da0cefaf2e0905feeaba5770d5438ccdddba3d01cba8063e96b8aac4c6daa0ed413dd5ae0554a433a3c4db38df1d134cffc1f
+  languageName: node
+  linkType: hard
+
+"powerglitch@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "powerglitch@npm:1.1.0"
+  checksum: 02bcf976fbb82a3747a30a0f9a7ae59116dbaa7aa32654e7b0c4b2fac936f0ec4ff3cfb1dd16c20d6f91cce34462dd90217a6c08c9334b63d3c38258b84ca18c
   languageName: node
   linkType: hard
 

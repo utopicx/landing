@@ -53,36 +53,40 @@ const BgParallax = () => {
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-180%">
         <div className="absolute -bottom-[18rem] -left-[22.5rem] h-[32rem] w-[32rem] md:-left-[20rem] md:-bottom-[16rem] md:h-[28rem] md:w-[28rem]">
-          <Image
-            layout="fill"
-            objectFit="contain"
-            className="-rotate-90 blur md:blur-sm"
-            src={poroto3Img}
+          <div className="-rotate-90">
+            <img
+              className="transform-gpu animate-[balance-y_8s_ease-in-out_infinite] blur md:blur-sm"
+              src="/shapes/poroto3.png"
+              alt="Esfera"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="absolute inset-0 h-full" data-swiper-parallax="-400%">
+        <div className="absolute left-8 bottom-[4rem]">
+          <img
+            width={64}
+            height={64}
+            className="transform-gpu animate-[balance-y_3s_ease-in-out_infinite]"
+            src="/shapes/esfera3.png"
             alt="Esfera"
           />
         </div>
       </div>
-      <div className="absolute inset-0 h-full" data-swiper-parallax="-400%">
-        <div className="absolute left-8 bottom-[4rem] h-16 w-16">
-          <Image src={esfera3Img} alt="Esfera" />
-        </div>
-      </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-250%">
         <div className="absolute -bottom-[4rem] -right-[6rem] h-48 w-48 md:-bottom-[5rem]">
-          <Image
-            layout="fill"
-            objectFit="cover"
-            className="-scale-90 blur-sm md:blur-none"
-            src={esfera4Img}
+          <img
+            className="-scale-90 transform-gpu animate-[balance_5s_ease-in-out_infinite] blur-sm md:blur-none"
+            src="/shapes/esfera4.png"
             alt="Esfera"
           />
         </div>
       </div>
       <div className="absolute inset-0 h-[200%]" data-swiper-parallax="-120%">
-        <div className="absolute -bottom-[20rem] -right-[14rem] h-80 w-80 md:-bottom-[17rem] md:-right-[10rem]">
-          <Image
-            className="-scale-[0.85] blur md:blur-sm"
-            src={esfera2Img}
+        <div className="absolute -bottom-[20rem] -right-[14rem] h-72 w-72 md:-bottom-[17rem] md:-right-[10rem]">
+          <img
+            className="animate-spin-slow blur md:blur-sm"
+            src="/shapes/esfera2.png"
             alt="Esfera"
           />
         </div>
@@ -94,7 +98,11 @@ const BgParallax = () => {
       </div>
       <div className="absolute inset-0 h-[520%]" data-swiper-parallax="-80%">
         <div className="absolute -bottom-20 -right-32 h-64 w-64 rotate-[25deg] md:-right-28 md:rotate-[35deg]">
-          <Image src={fig2Img} alt="Fig" />
+          <img
+            className="transform-gpu animate-[balance-rotate_8s_ease-in-out_infinite]"
+            src="/shapes/fig2.png"
+            alt="Fig"
+          />
         </div>
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="0%">

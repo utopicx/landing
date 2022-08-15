@@ -7,6 +7,7 @@ import LogoMini from "./svgs/LogoMini";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { AJUST } from "../data/logoAnimationAjust";
 import Swiper from "swiper";
+import { PowerGlitch } from "powerglitch";
 
 interface Props {
   isReverse?: boolean;
@@ -84,6 +85,10 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
     }
   }, [matchesIsTablet]);
 
+  useEffect(() => {
+    PowerGlitch.glitch(".glitch");
+  }, []);
+
   return (
     <animated.div
       className={classNames(
@@ -92,9 +97,14 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
       )}
       style={styles}
     >
-      <LogoMini
-        title="Utópicx"
-        className="h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"
+      {/*<LogoMini*/}
+      {/*  title="Utópicx"*/}
+      {/*  className="h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"*/}
+      {/*/>*/}
+      <img
+        className="glitch h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"
+        src="/images/logo_mini.png"
+        alt="Utópicx"
       />
     </animated.div>
   );

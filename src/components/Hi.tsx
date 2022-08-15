@@ -40,12 +40,12 @@ const Hi: FC = () => {
       <Transition
         show={show}
         as={Fragment}
-        enter="transition ease-in-out duration-1000"
-        enterFrom="rotate-0 opacity-0 -right-16"
-        enterTo="-rotate-[10deg] opacity-100 -right-16"
+        enter="transition-all ease-in-out duration-1000"
+        enterFrom="rotate-0 -right-36"
+        enterTo="-rotate-[10deg] -right-16"
         leave="transition-all ease-in-out duration-1000"
-        leaveFrom="-rotate-[10deg] opacity-100 -right-16"
-        leaveTo="rotate-0 opacity-0 -right-24"
+        leaveFrom="-rotate-[10deg] -right-16"
+        leaveTo="rotate-0 -right-40"
       >
         <div className="absolute bottom-2 h-40 w-40">
           <Image
