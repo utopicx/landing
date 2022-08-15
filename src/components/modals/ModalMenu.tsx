@@ -107,12 +107,13 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                 </button>
                 <Dialog.Title className="sr-only">Menu</Dialog.Title>
                 <LogoHorizontalDark className="mx-auto mt-20 mb-6 h-28 lg:h-52" />
-                <nav className="mx-auto w-64 space-y-4 lg:hidden">
+                <nav className="mx-auto w-64 lg:hidden">
                   <Transition.Child
                     as="ul"
                     enter="ease-in duration-1000"
                     enterFrom="max-h-0"
                     enterTo="max-h-96"
+                    className="space-y-4"
                   >
                     {MENU_DATA.map((section, i) => {
                       return (
