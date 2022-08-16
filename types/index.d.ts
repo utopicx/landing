@@ -36,3 +36,9 @@ interface GlobalEntity {
   ContactTitle: string;
   ContactDescription: string;
 }
+
+interface Seo {
+  Title: string;
+  Description: string;
+  URL: string;
+}
