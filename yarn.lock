@@ -783,10 +783,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.7.3":
-  version: 18.7.3
-  resolution: "@types/node@npm:18.7.3"
-  checksum: f51ed436a112235ac068d739b4823090a37b869cc186b64dd5c250dd285139c286990fcbeff2fb3ecba5d605fa885de4275247d332e5b96eafdfbb1da62e3ced
+"@types/node@npm:18.7.5":
+  version: 18.7.5
+  resolution: "@types/node@npm:18.7.5"
+  checksum: f74426f2c9e81ab00e35ddca8db84efb6eb6c77e6d120bbe84d462073c371fa46e4744bd87773d9f7cf9074cf575df573bb89c3335f38f4ecbef2f03b407f35f
   languageName: node
   linkType: hard
 
@@ -2781,7 +2781,7 @@ __metadata:
     "@mui/material": ^5.10.0
     "@react-spring/web": ^9.5.2
     "@tailwindcss/forms": ^0.5.2
-    "@types/node": 18.7.3
+    "@types/node": 18.7.5
     "@types/prettier": ^2.7.0
     "@types/react": ^18.0.17
     "@types/react-dom": ^18.0.6
@@ -2789,13 +2789,14 @@ __metadata:
     eslint: 8.22.0
     eslint-config-next: 12.2.5
     next: 12.2.5
+    next-seo: ^5.5.0
     postcss: ^8.4.16
     powerglitch: ^1.1.0
     prettier: ^2.7.1
     prettier-plugin-tailwindcss: ^0.1.13
     react: 18.2.0
     react-dom: 18.2.0
-    react-hook-form: ^7.34.1
+    react-hook-form: ^7.34.2
     react-intersection-observer: ^9.4.0
     swiper: ^8.3.2
     tailwindcss: ^3.1.8
@@ -3098,6 +3099,17 @@ __metadata:
   version: 0.6.3
   resolution: "negotiator@npm:0.6.3"
   checksum: b8ffeb1e262eff7968fc90a2b6767b04cfd9842582a9d0ece0af7049537266e7b2506dfb1d107a32f06dd849ab2aea834d5830f7f4d0e5cb7d36e1ae55d021d9
+  languageName: node
+  linkType: hard
+
+"next-seo@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "next-seo@npm:5.5.0"
+  peerDependencies:
+    next: ^8.1.1-canary.54 || >=9.0.0
+    react: ">=16.0.0"
+    react-dom: ">=16.0.0"
+  checksum: 3202c4e84db533ad116d629482e766eb954053d5630275eb75c3e4234cf3ae354e4c2284a7659c0480570670f292b122ee3d11e9b2f23588030d0d5b1f9cb37d
   languageName: node
   linkType: hard
 
@@ -3661,12 +3673,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-hook-form@npm:^7.34.1":
-  version: 7.34.1
-  resolution: "react-hook-form@npm:7.34.1"
+"react-hook-form@npm:^7.34.2":
+  version: 7.34.2
+  resolution: "react-hook-form@npm:7.34.2"
   peerDependencies:
     react: ^16.8.0 || ^17 || ^18
-  checksum: d7e7424a07119a1c789d453a8266f8ffbad45b074060555dfcef24e084baff50aab981da151e3c2ba02ba0d9774c8f0063723a90d115f1cd13822a46c56ed352
+  checksum: 485cde0248e668ad1845b927f9cc05b434c384141bb03bc143a7d7cc937eebf119c935114ccbfa397b463808283dab5b2334022fe5dba975402b201e601d6876
   languageName: node
   linkType: hard
 

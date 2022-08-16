@@ -28,3 +28,11 @@ interface Team {
   age: number;
   imageModified: any;
 }
+
+interface GlobalEntity {
+  HomeDescription: string;
+  ProyectTitle: string;
+  ProyectDescription: string;
+  ContactTitle: string;
+  ContactDescription: string;
+}

@@ -18,6 +18,7 @@ import teamService from "../services/team";
 import "swiper/css";
 import "swiper/css/parallax";
 import "swiper/css/a11y";
+import globalService from "../services/global";
 
 export const getStaticProps = async () => {
   const ONE_DAY = 60 * 60 * 24;
@@ -29,14 +30,16 @@ export const getStaticProps = async () => {
     password: process.env.PASSWORD,
   });
   global.jwt = auth.jwt;
-  const [apps, teams] = await Promise.all([
+  const [apps, teams, globalData] = await Promise.all([
     appService.getAll(),
     teamService.getAll(),
+    globalService.getAll(),
   ]);
   return {
     props: {
       apps: apps.data,
       teams: teams.data,
+      globalData: globalData.data,
     },
     revalidate: ONE_DAY,
   };

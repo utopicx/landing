@@ -1,12 +1,18 @@
-import Head from "next/head";
+import { NextSeo } from "next-seo";
+import { FC } from "react";
 
-const Seo: React.FC = () => {
+const Seo: FC = () => {
   return (
-    <Head>
-      <title>Utópicx</title>
-      <meta name="description" content="Utópicx landing page." />
-      <meta name="theme-color" content="#FF3972" />
-    </Head>
+    <NextSeo
+      title="Utópicx"
+      description="Utópicx landing page."
+      canonical="https://utopicx.com"
+      openGraph={{
+        url: "https://utopicx.com",
+        title: "Utópicx",
+        description: "Utópicx landing page.",
+      }}
+    />
   );
 };
 
