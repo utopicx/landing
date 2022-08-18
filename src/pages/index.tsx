@@ -1,4 +1,9 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
+import type {
+  GetStaticProps,
+  InferGetServerSidePropsType,
+  InferGetStaticPropsType,
+  NextPage,
+} from "next";
 import { InView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AboutUs from "../components/AboutUs";
@@ -21,7 +26,8 @@ import "swiper/css/a11y";
 import globalService from "../services/global";
 import seoService from "../services/seo";
 
-export const getStaticProps = async () => {
+// export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const ONE_DAY = 60 * 60 * 24;
   if (!process.env.EMAIL || !process.env.PASSWORD || !process.env.API_URL) {
     throw new Error("Missing environment variables");
@@ -44,16 +50,16 @@ export const getStaticProps = async () => {
       globalData: globalData.data,
       seo: seo.data,
     },
-    revalidate: ONE_DAY,
+    // revalidate: ONE_DAY,
   };
 };
 
-const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  apps,
-  teams,
-}) => {
+// const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+const Index: NextPage<
+  InferGetServerSidePropsType<typeof getServerSideProps>
+> = (props) => {
   const { dispatch } = useGlobal();
-  console.log({ apps, teams });
+  console.log({ props });
   return (
     <Layout>
       <Swiper

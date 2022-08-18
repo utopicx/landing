@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import ModalMenu from "./modals/ModalMenu";
 import LogoMini from "./svgs/LogoMini";
@@ -6,7 +6,7 @@ import BurgerImg from "../../public/images/btn_menu.png";
 import Image from "next/image";
 import classNames from "../utils/classNames";
 
-const Header: React.FC = () => {
+const Header: FC = () => {
   const { state } = useGlobal();
   const subtitleRef = useRef<HTMLHeadingElement | null>(null);
   const logoRef = useRef<SVGSVGElement | null>(null);
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
-        className="border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent"
+        className="rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent"
       >
         <span className="sr-only">Ir al inicio</span>
         <div
@@ -86,7 +86,7 @@ const Header: React.FC = () => {
         {state.section}
       </h2>
       <button
-        className="h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:h-14 lg:w-14"
+        className="h-10 w-10 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:h-14 lg:w-14"
         type="button"
         onClick={() => setShowMenu(true)}
       >

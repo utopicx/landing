@@ -12,6 +12,7 @@ import slideHandImg from "../../public/images/swipe.png";
 import { useEffect, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import { Transition } from "@headlessui/react";
+import Header from "./Header";
 
 const BgParallax = () => {
   const [show, setShow] = useState(true);

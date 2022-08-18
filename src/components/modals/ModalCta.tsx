@@ -77,7 +77,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
 
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => {}}>
+      <Dialog as="div" className="relative z-10 select-none" onClose={() => {}}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -191,15 +191,10 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                     </div>
                     <button
                       type="submit"
-                      className="block w-full rounded-bl-2xl rounded-tl-lg rounded-br-lg rounded-tr-2xl border border-transparent py-1 text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent"
+                      className="inline-flex w-full items-center rounded-bl-3xl rounded-tl-lg rounded-br-lg rounded-tr-3xl border border-transparent text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent"
                     >
                       <span className="sr-only">Enviar</span>
-                      <Image
-                        objectFit="contain"
-                        layout="responsive"
-                        src={btnSendImg}
-                        alt="Enviar"
-                      />
+                      <Image src={btnSendImg} alt="Enviar" />
                     </button>
                   </form>
                 </div>

@@ -4,8 +4,9 @@ import arrowTopImg from "../../public/images/flecha.png";
 import Image from "next/image";
 import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
+import { FC } from "react";
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const { state } = useGlobal();
 
   return (
@@ -24,7 +25,7 @@ const Home: React.FC = () => {
       </p>
       <button
         type="button"
-        className="z-10 mt-20 h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:mt-16 lg:h-16 lg:w-16"
+        className="z-10 mt-20 h-10 w-10 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:mt-16 lg:h-16 lg:w-16"
         onClick={() => state.swiperMaster?.slideTo(1)}
       >
         <p className="sr-only">Siguiente pantalla</p>

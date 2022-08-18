@@ -1,11 +1,10 @@
 import { useSpring, animated } from "@react-spring/web";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GlobalActionKind } from "../context/global/actions";
 import { useGlobal } from "../context/global/Context";
 import classNames from "../utils/classNames";
-import LogoMini from "./svgs/LogoMini";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { AJUST } from "../data/logoAnimationAjust";
+import { ADJUST } from "../data/logoAnimationAjust";
 import Swiper from "swiper";
 import { PowerGlitch } from "powerglitch";
 
@@ -19,21 +18,22 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
   const [styles, api] = useSpring(() => ({
     transform: "translate(0px,0px) scaleX(1) scaleY(1)",
   }));
-  const [currentAjust, setCurrentAjust] = useState({
-    xTraslateMustLeft: 0,
-    YTraslateMustTop: 0,
+  const [currentAdjust, setCurrentAdjust] = useState({
+    xTranslateMustLeft: 0,
+    YTranslateMustTop: 0,
     general: 0,
     positionProgress: 0,
   });
+  const imgLogoRef = useRef<null | HTMLImageElement>(null);
 
   useEffect(() => {
     const progressStaticPosition = isReverse ? 1 : 0;
     const animationLogoProgress = (_swiper: Swiper, progress: number) => {
       api.start({
         transform: `translate(${
-          -(progress * currentAjust.xTraslateMustLeft) * currentAjust.general
+          -(progress * currentAdjust.xTranslateMustLeft) * currentAdjust.general
         }px,${
-          -(progress * currentAjust.YTraslateMustTop) * currentAjust.general
+          -(progress * currentAdjust.YTranslateMustTop) * currentAdjust.general
         }px) scaleX(${
           matchesIsTablet && progress !== 0 ? 1 - (progress * 10 - 0.3) : 1
         }) scaleY(${
@@ -42,8 +42,8 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
       });
       if (
         !state.isLogoPositioned &&
-        parseFloat(new Number(progress).toPrecision(3)) >=
-          currentAjust.positionProgress
+        parseFloat(Number(progress).toPrecision(3)) >=
+          currentAdjust.positionProgress
       ) {
         dispatch({
           type: GlobalActionKind.SET_IS_LOGO_POSITIONED,
@@ -73,36 +73,55 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
   }, [
     state.swiperMaster,
     state.isLogoPositioned,
-    currentAjust,
+    currentAdjust,
     matchesIsTablet,
   ]);
 
   useEffect(() => {
+    console.log("useEffect LogoMiniAnimation");
     if (matchesIsTablet) {
-      setCurrentAjust(AJUST.tablet.normal);
+      setCurrentAdjust(ADJUST.tablet.normal);
     } else {
-      setCurrentAjust(AJUST.mobile.normal);
+      setCurrentAdjust(ADJUST.mobile.normal);
     }
   }, [matchesIsTablet]);
 
   useEffect(() => {
-    PowerGlitch.glitch(".glitch");
+    const img = imgLogoRef.current;
+    if (img) {
+      PowerGlitch.glitch(img);
+    }
   }, []);
+
+  useEffect(() => {
+    const divAnimatedElement = document.querySelectorAll(".animated-div");
+    if (divAnimatedElement) {
+      divAnimatedElement.forEach((element) => {
+        const { firstChild }: { firstChild: any } = element;
+        if (firstChild) {
+          if (matchesIsTablet) {
+            firstChild.style.width = "104px";
+            firstChild.style.height = "104px";
+          } else {
+            firstChild.style.width = "50px";
+            firstChild.style.height = "50px";
+          }
+        }
+      });
+    }
+  }, [matchesIsTablet]);
 
   return (
     <animated.div
       className={classNames(
         state.isLogoPositioned ? "opacity-0" : "opacity-100",
-        "absolute top-[2.6rem] left-[5.4rem] lg:top-[4.7rem] lg:left-[10.8rem]"
+        "animated-div absolute top-[2.6rem] left-[5.4rem] lg:top-[4.7rem] lg:left-[10.8rem]"
       )}
       style={styles}
     >
-      {/*<LogoMini*/}
-      {/*  title="Utópicx"*/}
-      {/*  className="h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"*/}
-      {/*/>*/}
       <img
-        className="glitch h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"
+        ref={imgLogoRef}
+        className="h-[3.15rem] w-[3.15rem] lg:h-[6.5rem] lg:w-[6.5rem]"
         src="/images/logo_mini.png"
         alt="Utópicx"
       />

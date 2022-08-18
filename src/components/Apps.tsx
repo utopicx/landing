@@ -27,13 +27,13 @@ const Apps: React.FC = () => {
             </p>
             <div className="flex gap-x-1 md:justify-start md:gap-x-4">
               <a
-                className="h-14 w-14 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                className="h-14 w-14 rounded-tl rounded-tr-md rounded-bl-md rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                 href=""
               >
                 <Image src={androidImg} alt="Android" />
               </a>
               <a
-                className="h-14 w-14 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                className="h-14 w-14 rounded-tl rounded-tr-md rounded-bl-md rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                 href=""
               >
                 <Image src={appleImg} alt="Apple" />

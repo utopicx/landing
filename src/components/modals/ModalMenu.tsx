@@ -72,7 +72,11 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
 
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-50" onClose={closeModal}>
+      <Dialog
+        as="div"
+        className="relative z-50 select-none"
+        onClose={closeModal}
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -122,7 +126,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                           key={`section-mobile-${section.id}`}
                         >
                           <button
-                            className="w-full rounded-bl-lg rounded-tr-lg px-6 text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                            className="w-full rounded-bl-3xl rounded-tl rounded-tr-3xl rounded-br text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                             type="button"
                             onClick={() => goTo(section.order)}
                           >
@@ -177,7 +181,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                 key={`section-desktop-${section.id}`}
                               >
                                 <button
-                                  className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                                  className="w-full rounded-bl-3xl rounded-tl rounded-tr-3xl rounded-br text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                                   type="button"
                                   onClick={() => goTo(section.order)}
                                 >
@@ -215,7 +219,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                   key={`section-desktop-${section.id}`}
                                 >
                                   <button
-                                    className="w-full rounded-bl-lg rounded-tr-lg text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                                    className="w-full rounded-bl-3xl rounded-tl rounded-tr-3xl rounded-br text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                                     type="button"
                                     onClick={() => goTo(section.order)}
                                   >

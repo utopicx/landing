@@ -27,12 +27,12 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => setShowModalCta(true)}
-        className="w-64 focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
+        className="inline-flex w-64 items-center rounded-bl-2xl rounded-tl rounded-tr-2xl rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
       >
         <Image src={btnContactoImg} alt="Comunicate" />
       </button>
       <a
-        className="mt-1 font-redhat text-white lg:text-2xl"
+        className="mt-1 rounded-md font-redhat text-white focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:text-2xl"
         href="mailto:equipo@utópicx.com"
       >
         equipo@utópicx.com
@@ -40,7 +40,7 @@ const Cta: React.FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0, 750)}
-        className="mt-10 h-10 w-10 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:h-16 lg:w-16"
+        className="mt-10 h-10 w-10 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:h-16 lg:w-16"
       >
         <p className="sr-only">Volver al comienzo</p>
         <Image

@@ -41,7 +41,7 @@ module.exports = {
         },
         "balance-rotate": {
           "0%, 100%": { transform: "rotate(0deg)" },
-          "50%": { transform: "rotate(90deg)" },
+          "50%": { transform: "rotate(10deg)" },
         },
       },
       animation: {
