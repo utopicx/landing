@@ -1,21 +1,16 @@
 import Image from "next/image";
-import esfera1Img from "../../public/shapes/esfera1.png";
-import esfera2Img from "../../public/shapes/esfera2.png";
-import esfera3Img from "../../public/shapes/esfera3.png";
-import esfera4Img from "../../public/shapes/esfera4.png";
 import fig1Img from "../../public/shapes/fig1.png";
-import fig2Img from "../../public/shapes/fig2.png";
 import fig3Img from "../../public/shapes/fig3.png";
 import porotoImg from "../../public/shapes/poroto.png";
-import poroto3Img from "../../public/shapes/poroto3.png";
 import slideHandImg from "../../public/images/swipe.png";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import { Transition } from "@headlessui/react";
-import Header from "./Header";
+import ambassadorImg from "../../public/gifs/embajador_inicio.png";
 
 const BgParallax = () => {
   const [show, setShow] = useState(true);
+  const [showAmbassador, setShowAmbassador] = useState(false);
   const { state } = useGlobal();
 
   useEffect(() => {
@@ -28,9 +23,37 @@ const BgParallax = () => {
     }
   }, [state.swiperMaster]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowAmbassador(true);
+    }, 500);
+  }, []);
+
   return (
     <>
       <div className="absolute inset-0 h-[140%]" data-swiper-parallax="-180%">
+        <Transition
+          show={showAmbassador}
+          as={Fragment}
+          enter="transition-transform ease-out duration-1000"
+          enterFrom="-translate-y-14 -translate-x-14"
+          enterTo="translate-y-0 translate-x-0"
+          leave="transition-transform ease-in-out duration-1000"
+          leaveFrom="translate-y-0 translate-x-0"
+          leaveTo="-translate-y-20 -translate-x-20"
+        >
+          <div className="absolute -top-[5rem] -left-[4rem] h-[16rem] w-[16rem] rotate-[120deg] blur-sm md:-top-[3rem] md:-left-[3rem]">
+            <Image
+              onLoadingComplete={() => {
+                setTimeout(() => {
+                  setShowAmbassador(false);
+                }, 2000);
+              }}
+              src={ambassadorImg}
+              alt="Embajador"
+            />
+          </div>
+        </Transition>
         <div className="absolute -top-[14rem] -left-[16rem] h-[28rem] w-[28rem] md:-left-[14rem]">
           <Image
             layout="fill"

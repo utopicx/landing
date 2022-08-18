@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { FC, Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import bgFormBorderImg from "../../../public/images/form_marco.png";
 import crossImg from "../../../public/images/cruz.png";
 import bgFormLabelImg from "../../../public/images/form_label.png";
 import bgFormCommentImg from "../../../public/images/form_comentarios.png";
+import commentService from "../../services/comment";
 
 interface Props {
   show: boolean;
@@ -21,12 +22,27 @@ interface Form {
   comments: string;
 }
 
-const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
+const ModalCta: FC<Props> = ({ show, closeModal }) => {
   const { state } = useGlobal();
-  const { register, handleSubmit } = useForm<Form>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { isSubmitting, isSubmitSuccessful },
+  } = useForm<Form>({
+    defaultValues: {
+      name: "",
+      comments: "",
+      email: "",
+    },
+  });
 
-  const submit = () => {
-    closeModal();
+  const submit = async ({ name, email, comments }: Form) => {
+    await commentService.sendForm({
+      nickName: name,
+      email,
+      comment: comments,
+    });
   };
 
   useEffect(() => {
@@ -75,6 +91,18 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
     }
   }, [show, state.swiperMaster]);
 
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      setTimeout(() => {
+        closeModal();
+      }, 2000);
+    }
+  }, [isSubmitSuccessful]);
+
+  useEffect(() => {
+    reset();
+  }, [show]);
+
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog as="div" className="relative z-10 select-none" onClose={() => {}}>
@@ -104,7 +132,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
                 <button
                   type="button"
-                  className="absolute right-8 top-8 z-30 h-6 w-6 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                  className="absolute right-8 top-8 z-30 h-6 w-6 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Cerrar modal</span>
@@ -176,7 +204,7 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 block w-full rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full resize-none rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />
@@ -189,13 +217,20 @@ const ModalCta: React.FC<Props> = ({ show, closeModal }) => {
                         </div>
                       </div>
                     </div>
-                    <button
-                      type="submit"
-                      className="inline-flex w-full items-center rounded-bl-3xl rounded-tl-lg rounded-br-lg rounded-tr-3xl border border-transparent text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent"
-                    >
-                      <span className="sr-only">Enviar</span>
-                      <Image src={btnSendImg} alt="Enviar" />
-                    </button>
+                    {isSubmitSuccessful ? (
+                      <p className="text-center text-2xl text-utopicx-cyan">
+                        ¡Comentario enviado!
+                      </p>
+                    ) : (
+                      <button
+                        type="submit"
+                        className="inline-flex w-full items-center rounded-bl-3xl rounded-tl-lg rounded-br-lg rounded-tr-3xl border border-transparent text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent disabled:grayscale"
+                        disabled={isSubmitting}
+                      >
+                        <span className="sr-only">Enviar</span>
+                        <Image src={btnSendImg} alt="Enviar" />
+                      </button>
+                    )}
                   </form>
                 </div>
                 <div className="absolute -inset-0">

@@ -58,7 +58,7 @@ const Header: FC = () => {
   }, [state.swiperMaster]);
 
   return (
-    <header className="fixed top-0 z-20 flex w-screen items-center justify-between px-4 py-2 lg:py-6">
+    <header className="fixed top-0 z-20 flex w-screen items-center justify-between px-4 pt-2 lg:pt-6">
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}

@@ -29,7 +29,12 @@ import seoService from "../services/seo";
 // export const getStaticProps = async () => {
 export const getServerSideProps = async () => {
   const ONE_DAY = 60 * 60 * 24;
-  if (!process.env.EMAIL || !process.env.PASSWORD || !process.env.API_URL) {
+  if (
+    !process.env.EMAIL ||
+    !process.env.PASSWORD ||
+    !process.env.NEXT_PUBLIC_API_URL ||
+    !process.env.API_URL
+  ) {
     throw new Error("Missing environment variables");
   }
   const auth = await authService.signIn({

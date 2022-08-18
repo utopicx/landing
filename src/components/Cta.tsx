@@ -4,7 +4,7 @@ import ModalCta from "./modals/ModalCta";
 import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
 import Image from "next/image";
 import arrowTopImg from "../../public/images/flecha.png";
-import btnContactoImg from "../../public/images/btn_contacto.png";
+import btnSendImg from "../../public/images/btn_enviar.png";
 import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
 
@@ -29,7 +29,7 @@ const Cta: React.FC = () => {
         onClick={() => setShowModalCta(true)}
         className="inline-flex w-64 items-center rounded-bl-2xl rounded-tl rounded-tr-2xl rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
       >
-        <Image src={btnContactoImg} alt="Comunicate" />
+        <Image src={btnSendImg} alt="Enviar" />
       </button>
       <a
         className="mt-1 rounded-md font-redhat text-white focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:text-2xl"

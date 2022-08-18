@@ -103,7 +103,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative transform overflow-hidden pb-4 text-left transition-all">
                 <button
                   type="button"
-                  className="absolute right-1 top-2 h-8 w-8 border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:right-4 lg:top-8"
+                  className="absolute right-1 top-2 h-8 w-8 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:right-4 lg:top-8"
                   onClick={closeModal}
                 >
                   <p className="sr-only">Cerrar menu</p>
