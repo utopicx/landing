@@ -25,6 +25,7 @@ import "swiper/css/parallax";
 import "swiper/css/a11y";
 import globalService from "../services/global";
 import seoService from "../services/seo";
+import { useEffect } from "react";
 
 // export const getStaticProps = async () => {
 export const getServerSideProps = async () => {
@@ -41,6 +42,7 @@ export const getServerSideProps = async () => {
     email: process.env.EMAIL,
     password: process.env.PASSWORD,
   });
+
   global.jwt = auth.jwt;
   const [apps, teams, globalData, seo] = await Promise.all([
     appService.getAll(),
@@ -63,8 +65,29 @@ export const getServerSideProps = async () => {
 const Index: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = (props) => {
-  const { dispatch } = useGlobal();
-  console.log({ props });
+  const { state, dispatch } = useGlobal();
+
+  useEffect(() => {
+    console.log({ state });
+    dispatch({
+      type: GlobalActionKind.SET_TEXTS,
+      payload: {
+        texts: {
+          apps: props.apps.map((app) => ({
+            id: app.id,
+            ...app.attributes,
+          })),
+          seo: props.seo?.attributes,
+          global: props.globalData.attributes,
+          teams: props.teams.map((team) => ({
+            id: team.id,
+            ...team.attributes,
+          })),
+        },
+      },
+    });
+  }, []);
+
   return (
     <Layout>
       <Swiper

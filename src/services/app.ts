@@ -5,7 +5,7 @@ const getAll = async () => {
       authorization: `Bearer ${global.jwt}`,
     },
   });
-  return (await res.json()) as Response<App>;
+  return (await res.json()) as ResponseArray<App>;
 };
 
 const appService = {

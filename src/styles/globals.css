@@ -9,7 +9,7 @@
 }
 
 .swiper-us > .swiper-wrapper {
-  @apply lg:flex lg:items-center;
+  @apply lg:flex lg:items-start;
 }
 
 .swiper-button-next,

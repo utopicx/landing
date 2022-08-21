@@ -14,7 +14,7 @@ const sendForm = async (props: Props) => {
       data: props,
     }),
   });
-  return (await res.json()) as Response<App>;
+  return await res.json();
 };
 
 const commentService = {

@@ -3,27 +3,21 @@ import ambassadorGif from "../../public/gifs/sonrie_loop.gif";
 import { FC, useEffect, useState, Fragment } from "react";
 import { Transition } from "@headlessui/react";
 import { useGlobal } from "../context/global/Context";
+import { useSwiperSlide } from "swiper/react";
+
+let alreadyShow = false;
 
 const Hi: FC = () => {
   const [show, setShow] = useState(false);
   const { state } = useGlobal();
+  const swiperSlide = useSwiperSlide();
 
   useEffect(() => {
-    if (state.swiperMaster) {
-      let timeout: NodeJS.Timeout | undefined = undefined;
-      state.swiperMaster.on("slideChange", ({ realIndex }) => {
-        timeout && clearTimeout(timeout);
-        if (realIndex === 1) {
-          setShow(true);
-          timeout = setTimeout(() => {
-            setShow(false);
-          }, 2500);
-        } else {
-          setShow(false);
-        }
-      });
+    if (!alreadyShow && swiperSlide.isActive) {
+      setShow(true);
+      alreadyShow = true;
     }
-  }, [state.swiperMaster]);
+  }, [swiperSlide.isActive]);
 
   return (
     <section
@@ -31,11 +25,10 @@ const Hi: FC = () => {
       className="relative flex min-h-screen flex-col items-center justify-center text-center"
     >
       <h2 className="text-4xl font-bold text-utopicx-magenta lg:text-7xl">
-        Saludo
+        {state.texts?.global.ProyectTitle}
       </h2>
       <p className="mt-8 w-72 font-redhat text-white lg:mt-4 lg:w-full lg:max-w-lg lg:text-2xl">
-        Somos una empresa innovadora que busca estar a la vanguardia en las
-        tendencias tecnológicas.
+        {state.texts?.global.ProyectDescription}
       </p>
       <Transition
         show={show}

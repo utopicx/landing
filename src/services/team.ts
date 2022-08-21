@@ -5,7 +5,7 @@ const getAll = async () => {
       authorization: `Bearer ${global.jwt}`,
     },
   });
-  return (await res.json()) as Response<Team>;
+  return (await res.json()) as ResponseArray<Team>;
 };
 
 const teamService = {

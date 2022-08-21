@@ -21,7 +21,7 @@ const Home: FC = () => {
       </div>
       <h1 className="sr-only">Utópicx</h1>
       <p className="w-52 text-center text-white lg:-mt-10 lg:w-80 lg:text-2xl">
-        Slogan o pequeño texto con la personalidad de marca
+        {state.texts?.global.HomeDescription}
       </p>
       <button
         type="button"

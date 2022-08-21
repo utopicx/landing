@@ -1,5 +1,23 @@
+interface ResponseArray<T> {
+  data: Array<{
+    id: number;
+    attributes: T;
+  }>;
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+}
+
 interface Response<T> {
-  data: Array<T>;
+  data: {
+    id: number;
+    attributes: T;
+  };
   meta: {
     pagination: {
       page: number;
