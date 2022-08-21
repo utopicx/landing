@@ -26,6 +26,7 @@ import "swiper/css/a11y";
 import globalService from "../services/global";
 import seoService from "../services/seo";
 import { useEffect } from "react";
+import { shuffle } from "../utils/array";
 
 // export const getStaticProps = async () => {
 export const getServerSideProps = async () => {
@@ -50,6 +51,7 @@ export const getServerSideProps = async () => {
     globalService.getAll(),
     seoService.getAll(),
   ]);
+
   return {
     props: {
       apps: apps.data,
@@ -68,7 +70,11 @@ const Index: NextPage<
   const { state, dispatch } = useGlobal();
 
   useEffect(() => {
-    console.log({ state });
+    console.log({ props });
+    const teams = props.teams.map((team) => ({
+      id: team.id,
+      ...team.attributes,
+    }));
     dispatch({
       type: GlobalActionKind.SET_TEXTS,
       payload: {
@@ -79,10 +85,7 @@ const Index: NextPage<
           })),
           seo: props.seo?.attributes,
           global: props.globalData.attributes,
-          teams: props.teams.map((team) => ({
-            id: team.id,
-            ...team.attributes,
-          })),
+          teams: shuffle(teams),
         },
       },
     });

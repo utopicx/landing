@@ -32,19 +32,52 @@ interface Auth {
   jwt: string;
 }
 
+interface ImageProps {
+  ext: string;
+  hash: string;
+  height: number;
+  mime: string;
+  name: string;
+  size: number;
+  url: string;
+  width: number;
+}
+
+interface Image {
+  attributes: ImageProps & {
+    alternativeText: string;
+    caption: string;
+    createdAt: string;
+    formats: { small: ImageProps; medium: ImageProps; thumbnail: ImageProps };
+    previewUrl: nul;
+    provider: string;
+    provider_metadata: null;
+    updatedAt: string;
+  };
+}
+
 interface App {
   name: string;
   description: string;
-  image: any;
+  image: {
+    data: Image;
+    id: number;
+  };
 }
 
 interface Team {
   name: string;
   description: string;
-  image: any;
+  image: {
+    data: Image;
+    id: number;
+  };
   role: string;
   age: number;
-  imageModified: any;
+  imageModified: {
+    data: Array<Image>;
+    id: number;
+  };
 }
 
 interface GlobalEntity {

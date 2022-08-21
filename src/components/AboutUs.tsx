@@ -22,6 +22,7 @@ const AboutUs: FC = () => {
   }>();
   const swiperSlide = useSwiperSlide();
   const [showAmbassador, setShowAmbassador] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     stateSwiper?.swiper?.on("slideChange", (swiper) => {
@@ -42,7 +43,7 @@ const AboutUs: FC = () => {
   return (
     <section
       id="aboutUs"
-      className="relative min-h-screen pt-16 lg:flex lg:items-center"
+      className="container relative mx-auto min-h-screen pt-16 lg:flex lg:items-center"
     >
       <h2 className="sr-only text-center text-4xl font-bold text-utopicx-cyan">
         Nosotrxs
@@ -62,6 +63,7 @@ const AboutUs: FC = () => {
             onLoadingComplete={() => {
               setTimeout(() => {
                 setShowAmbassador(false);
+                setShowVideo(true);
               }, 2000);
             }}
             src={ambassadorImg}
@@ -92,7 +94,39 @@ const AboutUs: FC = () => {
                 <div className="absolute inset-0">
                   <Image layout="fill" src={usBorderImg} alt="Borde" />
                 </div>
-                <div className="absolute top-4 right-4 h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br-md rounded-tl-md bg-gray-500" />
+                <div className="absolute top-4 right-4 h-full w-full">
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="top"
+                    className="aspect-[7/10] rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl"
+                    src={`${process.env.NEXT_PUBLIC_API_URL}${team.image.data.attributes.url}`}
+                    alt={team.name}
+                  />
+                </div>
+                <Transition
+                  show={showVideo}
+                  as={Fragment}
+                  enter="ease-out"
+                  enterFrom="blur-xl"
+                  enterTo="blur-none"
+                  leave="ease-in-out"
+                  leaveFrom="blur-none"
+                  leaveTo="blur-xl"
+                >
+                  <div className="absolute top-4 right-4 z-10 h-full w-full transition-all duration-1000 hover:opacity-0">
+                    <video
+                      className="h-full w-full rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl object-cover object-top"
+                      autoPlay
+                      loop
+                      muted
+                    >
+                      <source
+                        src={`${process.env.NEXT_PUBLIC_API_URL}${team.imageModified.data[0].attributes.url}`}
+                      />
+                    </video>
+                  </div>
+                </Transition>
               </div>
               <div className="mx-auto -mt-1 px-14 md:ml-0 md:px-0 lg:ml-auto lg:-mt-2 lg:w-64">
                 <div className="lg:-ml-4">
