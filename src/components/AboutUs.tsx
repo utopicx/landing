@@ -62,9 +62,11 @@ const AboutUs: FC = () => {
           <Image
             onLoadingComplete={() => {
               setTimeout(() => {
-                setShowAmbassador(false);
                 setShowVideo(true);
               }, 2000);
+              setTimeout(() => {
+                setShowAmbassador(false);
+              }, 4000);
             }}
             src={ambassadorImg}
             alt="Embajador"
