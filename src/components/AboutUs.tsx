@@ -135,10 +135,10 @@ const AboutUs: FC = () => {
                   <h3 className="relative z-10 text-4xl font-bold text-utopicx-magenta lg:text-6xl">
                     {team.name}
                   </h3>
-                  <p className="my-3 font-redhat font-bold italic text-white lg:my-1 lg:text-2xl">
+                  <p className="my-3 font-redhat font-bold italic text-white lg:my-1 lg:text-xl">
                     {team.role}
                   </p>
-                  <p className="w-52 font-redhat font-light text-white lg:w-full lg:pr-6 lg:text-lg">
+                  <p className="w-52 font-redhat font-light text-white lg:w-full lg:pr-6 lg:text-lg lg:leading-6  ">
                     {team.description}
                   </p>
                 </div>
