@@ -102,7 +102,7 @@ const AboutUs: FC = () => {
                     objectFit="cover"
                     objectPosition="top"
                     className="aspect-[7/10] rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl"
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${team.image.data.attributes.url}`}
+                    src={team.image.data.attributes.url}
                     alt={team.name}
                   />
                 </div>
@@ -123,9 +123,7 @@ const AboutUs: FC = () => {
                       loop
                       muted
                     >
-                      <source
-                        src={`${process.env.NEXT_PUBLIC_API_URL}${team.imageModified.data[0].attributes.url}`}
-                      />
+                      <source src={team.imageModified.data[0].attributes.url} />
                     </video>
                   </div>
                 </Transition>
