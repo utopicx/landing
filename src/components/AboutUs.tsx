@@ -53,7 +53,7 @@ const AboutUs: FC = () => {
   return (
     <section
       id="aboutUs"
-      className="container relative mx-auto min-h-screen pt-16 lg:flex lg:items-center"
+      className="container relative mx-auto flex min-h-screen flex-col pt-16 lg:flex-row lg:items-center"
     >
       <h2 className="sr-only text-center text-4xl font-bold text-utopicx-cyan">
         Nosotrxs
@@ -84,7 +84,7 @@ const AboutUs: FC = () => {
         </div>
       </Transition>
       <Swiper
-        className="swiper-us lg:!mx-14"
+        className="swiper-us flex flex-grow items-center lg:!mx-14  "
         navigation
         modules={[Navigation]}
         breakpoints={{
