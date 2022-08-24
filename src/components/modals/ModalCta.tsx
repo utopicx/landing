@@ -140,15 +140,15 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                 </button>
                 <div className="relative z-10">
                   <div>
-                    <div className="sm:mt-5">
+                    <div className="mt-5">
                       <Dialog.Title
                         as="h3"
-                        className="text-3xl font-medium text-utopicx-cyan lg:text-5xl"
+                        className="pr-8 text-3xl font-medium text-utopicx-cyan lg:pr-4 lg:text-5xl"
                       >
                         {state.texts?.global.ContactTitle}
                       </Dialog.Title>
                       <div>
-                        <p className="font-redhat text-sm text-white lg:text-xl">
+                        <p className="pr-8 font-redhat text-sm text-white lg:pr-4 lg:text-xl">
                           {state.texts?.global.ContactDescription}
                         </p>
                       </div>

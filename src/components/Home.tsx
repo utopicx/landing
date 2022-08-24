@@ -25,18 +25,18 @@ const Home: FC = () => {
       </p>
       <button
         type="button"
-        className="z-10 mt-20 h-10 w-10 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:mt-16 lg:h-16 lg:w-16"
+        className="z-10 mt-20 inline-flex h-10 w-10 items-center rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent lg:mt-16 lg:h-16 lg:w-16"
         onClick={() => state.swiperMaster?.slideTo(1)}
       >
         <p className="sr-only">Siguiente pantalla</p>
-        <Image
-          className="rotate-180"
-          objectFit="contain"
-          height="100%"
-          width="100%"
-          src={arrowTopImg}
-          alt="Flecha hacia abajo"
-        />
+        <div className="relative h-[1.4rem] w-10 lg:h-9 lg:w-16">
+          <Image
+            className="rotate-180"
+            src={arrowTopImg}
+            alt="Flecha hacia abajo"
+            layout="fill"
+          />
+        </div>
       </button>
     </section>
   );

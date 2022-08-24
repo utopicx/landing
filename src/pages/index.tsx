@@ -67,7 +67,7 @@ export const getServerSideProps = async () => {
 const Index: NextPage<
   InferGetServerSidePropsType<typeof getServerSideProps>
 > = (props) => {
-  const { state, dispatch } = useGlobal();
+  const { dispatch } = useGlobal();
 
   useEffect(() => {
     console.log({ props });

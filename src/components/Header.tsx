@@ -86,18 +86,12 @@ const Header: FC = () => {
         {state.section}
       </h2>
       <button
-        className="h-10 w-10 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:h-14 lg:w-14"
+        className="relative inline-flex h-10 w-10 items-center justify-center rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:h-14 lg:w-14"
         type="button"
         onClick={() => setShowMenu(true)}
       >
         <p className="sr-only">Abrir menu</p>
-        <Image
-          objectFit="contain"
-          width="100%"
-          height="100%"
-          src={BurgerImg}
-          alt="Menu"
-        />
+        <Image objectFit="contain" layout="fill" src={BurgerImg} alt="Menu" />
       </button>
       <ModalMenu show={showMenu} closeModal={() => setShowMenu(false)} />
     </header>

@@ -59,7 +59,9 @@ interface Image {
 interface App {
   name: string;
   description: string;
-  image: {
+  URLAndroid: string;
+  URLApple: string;
+  Image: {
     data: Image;
     id: number;
   };

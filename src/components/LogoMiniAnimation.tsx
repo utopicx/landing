@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { GlobalActionKind } from "../context/global/actions";
 import { useGlobal } from "../context/global/Context";
 import classNames from "../utils/classNames";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { ADJUST } from "../data/logoAnimationAjust";
 import Swiper from "swiper";
 import { PowerGlitch } from "powerglitch";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 interface Props {
   isReverse?: boolean;
@@ -78,7 +78,6 @@ const LogoMiniAnimation = ({ isReverse }: Props) => {
   ]);
 
   useEffect(() => {
-    console.log("useEffect LogoMiniAnimation");
     if (matchesIsTablet) {
       setCurrentAdjust(ADJUST.tablet.normal);
     } else {

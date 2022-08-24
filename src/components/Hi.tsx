@@ -40,7 +40,7 @@ const Hi: FC = () => {
         leaveFrom="-rotate-[10deg] -right-16"
         leaveTo="rotate-0 -right-52"
       >
-        <div className="absolute bottom-2 h-52 w-52">
+        <div className="absolute bottom-2 h-44 w-52">
           <Image
             onLoadingComplete={() => {
               setTimeout(() => {
@@ -48,7 +48,8 @@ const Hi: FC = () => {
               }, 2000);
             }}
             src={ambassadorGif}
-            alt="Embajador"
+            alt="Uxi"
+            layout="fill"
           />
         </div>
       </Transition>
