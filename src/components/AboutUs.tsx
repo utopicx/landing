@@ -32,7 +32,7 @@ const AboutUs: FC = () => {
   );
   const newTeamsList = [...(state.texts?.teams || [])];
   indexUxi && newTeamsList.splice(indexUxi, 1);
-  indexDavid && newTeamsList.push(newTeamsList.splice(indexDavid, 1)[0]);
+  indexDavid && newTeamsList.splice(indexDavid, 1);
 
   useEffect(() => {
     stateSwiper?.swiper?.on("slideChange", (swiper) => {
@@ -128,6 +128,20 @@ const AboutUs: FC = () => {
               description={state.texts.teams[indexUxi].description}
               showVideo={showVideo}
               role={state.texts.teams[indexUxi].role}
+            />
+          </SwiperSlide>
+        ) : null}
+        {indexDavid && state.texts?.teams ? (
+          <SwiperSlide>
+            <Team
+              name={state.texts.teams[indexDavid].name}
+              video={
+                state.texts.teams[indexDavid].imageModified.data[0].attributes
+                  .url
+              }
+              description={state.texts.teams[indexDavid].description}
+              showVideo={showVideo}
+              role={state.texts.teams[indexDavid].role}
             />
           </SwiperSlide>
         ) : null}

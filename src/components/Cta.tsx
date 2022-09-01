@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { useGlobal } from "../context/global/Context";
 import ModalCta from "./modals/ModalCta";
 import LogoHorizontalDark from "./svgs/LogoHorizontalDark";
@@ -8,7 +8,7 @@ import btnSendImg from "../../public/images/btn_enviar.png";
 import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
 
-const Cta: React.FC = () => {
+const Cta: FC = () => {
   const { state } = useGlobal();
   const [showModalCta, setShowModalCta] = useState(false);
   return (
@@ -22,7 +22,7 @@ const Cta: React.FC = () => {
         <LogoMiniAnimation isReverse />
       </div>
       <h3 className="-mt-2 mb-2 font-redhat text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
-        Comunicate con nosotrxs
+        {state.texts?.global.ContactDescription}
       </h3>
       <button
         type="button"
