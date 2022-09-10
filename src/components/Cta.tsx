@@ -21,7 +21,7 @@ const Cta: FC = () => {
         <PatchLogo />
         <LogoMiniAnimation isReverse />
       </div>
-      <h3 className="-mt-2 mb-2 font-redhat text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
+      <h3 className="-mt-2 mb-2 text-center font-redhat text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
         {state.texts?.global.ContactDescription}
       </h3>
       <button
