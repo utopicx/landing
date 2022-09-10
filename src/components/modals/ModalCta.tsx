@@ -147,11 +147,9 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                       >
                         {state.texts?.global.ContactFormTitle}
                       </Dialog.Title>
-                      <div>
-                        <p className="pr-8 font-redhat text-sm text-white lg:pr-4 lg:text-xl">
-                          {state.texts?.global.ContactFormDescription}
-                        </p>
-                      </div>
+                      <p className="mt-4 pr-8 font-redhat text-sm text-white lg:pr-4 lg:text-xl">
+                        {state.texts?.global.ContacFormDescription}
+                      </p>
                     </div>
                   </div>
                   <form

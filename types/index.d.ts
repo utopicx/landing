@@ -88,7 +88,7 @@ interface GlobalEntity {
   ProyectDescription: string;
   ContactDescription: string;
   ContactFormTitle: string;
-  ContactFormDescription: string;
+  ContacFormDescription: string;
 }
 
 interface Seo {
