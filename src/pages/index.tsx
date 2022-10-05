@@ -19,14 +19,14 @@ import BgParallax from "../components/BgParallax";
 import authService from "../services/auth";
 import appService from "../services/app";
 import teamService from "../services/team";
-
-import "swiper/css";
-import "swiper/css/parallax";
-import "swiper/css/a11y";
 import globalService from "../services/global";
 import seoService from "../services/seo";
 import { useEffect } from "react";
 import { shuffle } from "../utils/array";
+
+import "swiper/css";
+import "swiper/css/parallax";
+import "swiper/css/a11y";
 
 // export const getStaticProps = async () => {
 export const getServerSideProps = async () => {
@@ -52,10 +52,26 @@ export const getServerSideProps = async () => {
     seoService.getAll(),
   ]);
 
+  const shuffledTeams = [...shuffle(teams.data)];
+
+  const indexUxi = shuffledTeams.findIndex(
+    (team) => team.attributes.name.toLowerCase() === "uxi"
+  );
+  const indexDavid = shuffledTeams.findIndex(
+    (team) => team.attributes.name.toLowerCase() === "david"
+  );
+
+  const newTeamsList = shuffledTeams.filter((_, i) => {
+    return !(i === indexUxi || i === indexDavid);
+  });
+
+  newTeamsList.push(shuffledTeams[indexUxi]);
+  newTeamsList.push(shuffledTeams[indexDavid]);
+
   return {
     props: {
       apps: apps.data,
-      teams: teams.data,
+      teams: newTeamsList,
       globalData: globalData.data,
       seo: seo.data,
     },
@@ -70,7 +86,6 @@ const Index: NextPage<
   const { dispatch } = useGlobal();
 
   useEffect(() => {
-    console.log({ props });
     const teams = props.teams.map((team) => ({
       id: team.id,
       ...team.attributes,
@@ -85,7 +100,7 @@ const Index: NextPage<
           })),
           seo: props.seo?.attributes,
           global: props.globalData.attributes,
-          teams: shuffle(teams),
+          teams,
         },
       },
     });

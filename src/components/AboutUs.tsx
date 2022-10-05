@@ -24,15 +24,7 @@ const AboutUs: FC = () => {
   const swiperSlide = useSwiperSlide();
   const [showAmbassador, setShowAmbassador] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
-  const indexUxi = state.texts?.teams.findIndex(
-    (team) => team.name.toLowerCase() === "uxi"
-  );
-  const indexDavid = state.texts?.teams.findIndex(
-    (team) => team.name.toLowerCase() === "david"
-  );
-  const newTeamsList = [...(state.texts?.teams || [])];
-  indexUxi && newTeamsList.splice(indexUxi, 1);
-  indexDavid && newTeamsList.splice(indexDavid, 1);
+  const { teams } = state?.texts || { teams: [] };
 
   useEffect(() => {
     stateSwiper?.swiper?.on("slideChange", (swiper) => {
@@ -99,8 +91,8 @@ const AboutUs: FC = () => {
           })
         }
       >
-        {newTeamsList.length
-          ? newTeamsList.map((team) => {
+        {teams.length
+          ? teams.map((team) => {
               if (!team) {
                 return null;
               }
@@ -118,33 +110,6 @@ const AboutUs: FC = () => {
               );
             })
           : null}
-        {indexUxi && state.texts?.teams ? (
-          <SwiperSlide>
-            <Team
-              name={state.texts.teams[indexUxi].name}
-              video={
-                state.texts.teams[indexUxi].imageModified.data[0].attributes.url
-              }
-              description={state.texts.teams[indexUxi].description}
-              showVideo={showVideo}
-              role={state.texts.teams[indexUxi].role}
-            />
-          </SwiperSlide>
-        ) : null}
-        {indexDavid && state.texts?.teams ? (
-          <SwiperSlide>
-            <Team
-              name={state.texts.teams[indexDavid].name}
-              video={
-                state.texts.teams[indexDavid].imageModified.data[0].attributes
-                  .url
-              }
-              description={state.texts.teams[indexDavid].description}
-              showVideo={showVideo}
-              role={state.texts.teams[indexDavid].role}
-            />
-          </SwiperSlide>
-        ) : null}
       </Swiper>
       <div className="hidden lg:flex lg:h-full lg:items-center">
         <button
