@@ -28,9 +28,9 @@ import "swiper/css";
 import "swiper/css/parallax";
 import "swiper/css/a11y";
 
-// export const getStaticProps = async () => {
-export const getServerSideProps = async () => {
-  const ONE_DAY = 60 * 60 * 24;
+const ONE_DAY = 60 * 60 * 24;
+
+export const getStaticProps = async () => {
   if (
     !process.env.EMAIL ||
     !process.env.PASSWORD ||
@@ -75,14 +75,13 @@ export const getServerSideProps = async () => {
       globalData: globalData.data,
       seo: seo.data,
     },
-    // revalidate: ONE_DAY,
+    revalidate: 10,
   };
 };
 
-// const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-const Index: NextPage<
-  InferGetServerSidePropsType<typeof getServerSideProps>
-> = (props) => {
+const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
+  props
+) => {
   const { dispatch } = useGlobal();
 
   useEffect(() => {
