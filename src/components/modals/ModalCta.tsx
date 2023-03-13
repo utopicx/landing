@@ -10,6 +10,7 @@ import crossImg from "../../../public/images/cruz.png";
 import bgFormLabelImg from "../../../public/images/form_label.png";
 import bgFormCommentImg from "../../../public/images/form_comentarios.png";
 import commentService from "../../services/comment";
+import localFonts from "../../utils/localFonts";
 
 interface Props {
   show: boolean;
@@ -105,7 +106,11 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
 
   return (
     <Transition.Root show={show} as={Fragment}>
-      <Dialog as="div" className="relative z-10 select-none" onClose={() => {}}>
+      <Dialog
+        as="div"
+        className={`${localFonts.RedHatDisplay.variable} ${localFonts.Ubuntu.variable} relative z-10 select-none`}
+        onClose={() => {}}
+      >
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -129,21 +134,21 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
                 <button
                   type="button"
-                  className="absolute right-8 top-8 z-30 h-6 w-6 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                  className="absolute right-8 top-8 z-30 h-8 w-8 rounded-md border border-transparent p-1 focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                   onClick={closeModal}
                 >
                   <span className="sr-only">Cerrar modal</span>
-                  <Image layout="responsive" src={crossImg} alt="Cruz" />
+                  <Image src={crossImg} alt="Cruz" />
                 </button>
                 <div className="relative z-10">
                   <div>
                     <div className="mt-5">
                       <Dialog.Title
                         as="h3"
-                        className="pr-8 text-3xl font-medium text-utopicx-cyan lg:pr-4 lg:text-5xl"
+                        className="pr-8 font-ubuntu text-3xl font-medium text-utopicx-cyan lg:pr-4 lg:text-5xl"
                       >
                         {state.texts?.global.ContactFormTitle}
                       </Dialog.Title>
@@ -169,8 +174,12 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-[1.25rem] rounded-tr-[1.25rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Apodo o nombre "
                         />
-                        <div className="absolute inset-0">
-                          <Image src={bgFormLabelImg} alt="Background input" />
+                        <div className="absolute inset-x-0 top-0 bottom-[0.01rem]">
+                          <Image
+                            className="h-full"
+                            src={bgFormLabelImg}
+                            alt="Background input"
+                          />
                         </div>
                       </div>
                     </div>
@@ -187,8 +196,12 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-tr-[1.25rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Mail"
                         />
-                        <div className="absolute inset-0">
-                          <Image src={bgFormLabelImg} alt="Background input" />
+                        <div className="absolute inset-x-0 top-0 bottom-[0.01rem]">
+                          <Image
+                            className="h-full"
+                            src={bgFormLabelImg}
+                            alt="Background input"
+                          />
                         </div>
                       </div>
                     </div>
@@ -202,13 +215,13 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 block w-full resize-none rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full resize-none rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-lg rounded-tl-lg border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />
                         <div className="absolute inset-0">
                           <Image
-                            layout="fill"
+                            className="h-full"
                             src={bgFormCommentImg}
                             alt="Background input"
                           />
@@ -231,8 +244,12 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                     )}
                   </form>
                 </div>
-                <div className="absolute -inset-0">
-                  <Image layout="fill" src={bgFormBorderImg} alt="Marco Form" />
+                <div className="absolute inset-0 mt-4 md:mx-3 md:mt-2">
+                  <Image
+                    className="w-full"
+                    src={bgFormBorderImg}
+                    alt="Marco Form"
+                  />
                 </div>
               </Dialog.Panel>
             </Transition.Child>

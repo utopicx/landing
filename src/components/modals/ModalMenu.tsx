@@ -103,7 +103,7 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
               <Dialog.Panel className="relative transform overflow-hidden pb-4 text-left transition-all">
                 <button
                   type="button"
-                  className="absolute right-1 top-2 h-8 w-8 rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:right-4 lg:top-8"
+                  className="absolute right-1 top-2 h-10 w-10 rounded-md border border-transparent p-1 focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent lg:right-4 lg:top-8"
                   onClick={closeModal}
                 >
                   <p className="sr-only">Cerrar menu</p>
@@ -131,29 +131,22 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                             onClick={() => goTo(section.order)}
                           >
                             <span className="sr-only">{section.name}</span>
-                            <Image
-                              layout="responsive"
-                              src={section.imgSrc}
-                              alt={section.name}
-                              priority
-                            />
+                            <Image src={section.imgSrc} alt={section.name} />
                           </button>
                           {i + 1 !== MENU_DATA.length ? (
                             <>
                               {i % 2 ? (
-                                <div className="absolute -bottom-6 right-14 w-10">
+                                <div className="absolute -bottom-5 right-14 w-10">
                                   <Image
                                     src={menuConnection2Img}
                                     alt="Conexion"
-                                    priority
                                   />
                                 </div>
                               ) : (
-                                <div className="absolute -bottom-6 left-14 w-10">
+                                <div className="absolute -bottom-5 left-14 w-10">
                                   <Image
                                     src={menuConnection1Img}
                                     alt="Conexion"
-                                    priority
                                   />
                                 </div>
                               )}
@@ -189,18 +182,15 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                                     {section.name}
                                   </span>
                                   <Image
-                                    layout="responsive"
                                     src={section.imgSrc}
                                     alt={section.name}
-                                    priority
                                   />
                                 </button>
                                 {menuDesktopLeft.length - 1 !== i ? (
-                                  <div className="absolute -bottom-6 -right-[2.25rem] w-20">
+                                  <div className="absolute -bottom-5 -right-[2.25rem] w-20">
                                     <Image
                                       src={menuConnectionDesktopLeft}
                                       alt="Conexion"
-                                      priority
                                     />
                                   </div>
                                 ) : null}
@@ -211,39 +201,34 @@ const ModalMenu: FC<Props> = ({ show, closeModal }) => {
                       </li>
                       <li className="h-full w-full">
                         <ul className="space-y-8">
-                          {MENU_DATA.filter((_, i) => i % 2).map(
-                            (section, i) => {
-                              return (
-                                <li
-                                  className="relative"
-                                  key={`section-desktop-${section.id}`}
+                          {MENU_DATA.filter((_, i) => i % 2).map((section) => {
+                            return (
+                              <li
+                                className="relative"
+                                key={`section-desktop-${section.id}`}
+                              >
+                                <button
+                                  className="w-full rounded-bl-3xl rounded-tl rounded-tr-3xl rounded-br text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                                  type="button"
+                                  onClick={() => goTo(section.order)}
                                 >
-                                  <button
-                                    className="w-full rounded-bl-3xl rounded-tl rounded-tr-3xl rounded-br text-3xl font-bold text-utopicx-magenta focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
-                                    type="button"
-                                    onClick={() => goTo(section.order)}
-                                  >
-                                    <span className="sr-only">
-                                      {section.name}
-                                    </span>
-                                    <Image
-                                      layout="responsive"
-                                      src={section.imgSrc}
-                                      alt={section.name}
-                                      priority
-                                    />
-                                  </button>
-                                  <div className="absolute -bottom-6 -left-[2.1rem] w-20">
-                                    <Image
-                                      src={menuConnectionDesktopRight}
-                                      alt="Conexion"
-                                      priority
-                                    />
-                                  </div>
-                                </li>
-                              );
-                            }
-                          )}
+                                  <span className="sr-only">
+                                    {section.name}
+                                  </span>
+                                  <Image
+                                    src={section.imgSrc}
+                                    alt={section.name}
+                                  />
+                                </button>
+                                <div className="absolute -bottom-5 -left-[2.1rem] w-20">
+                                  <Image
+                                    src={menuConnectionDesktopRight}
+                                    alt="Conexion"
+                                  />
+                                </div>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </li>
                     </ul>

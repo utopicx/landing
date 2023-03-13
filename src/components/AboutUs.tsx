@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import type SwiperType from "swiper";
 import { Navigation } from "swiper";
-import usBorderImg from "../../public/images/nosotrxs_marco.png";
 import arrowTop from "../../public/images/flecha.png";
 import { FC, Fragment, useEffect, useState } from "react";
 import ambassadorImg from "../../public/gifs/spray_loop.gif";
@@ -120,7 +119,7 @@ const AboutUs: FC = () => {
           onClick={() => stateSwiper?.swiper?.slidePrev()}
         >
           <div className="relative h-8 w-14 -rotate-90">
-            <Image layout="fill" src={arrowTop} alt="Arrow" />
+            <Image src={arrowTop} alt="Arrow" />
           </div>
         </button>
       </div>
@@ -134,7 +133,7 @@ const AboutUs: FC = () => {
           onClick={() => stateSwiper?.swiper?.slideNext()}
         >
           <div className="relative h-8 w-14 rotate-90">
-            <Image layout="fill" src={arrowTop} alt="Arrow" />
+            <Image src={arrowTop} alt="Arrow" />
           </div>
         </button>
       </div>

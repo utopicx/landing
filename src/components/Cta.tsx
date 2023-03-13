@@ -30,7 +30,7 @@ const Cta: FC = () => {
         className="inline-flex w-64 items-center rounded-bl-2xl rounded-tl rounded-tr-2xl rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
       >
         <div className="relative h-12 w-64 lg:h-14 lg:w-80">
-          <Image src={btnSendImg} alt="Enviar" layout="fill" />
+          <Image src={btnSendImg} alt="Enviar" />
         </div>
       </button>
       <a
@@ -46,7 +46,7 @@ const Cta: FC = () => {
       >
         <p className="sr-only">Volver al comienzo</p>
         <div className="relative h-[1.4rem] w-10 lg:h-9 lg:w-16">
-          <Image layout="fill" src={arrowTopImg} alt="Flecha hacia arriba" />
+          <Image src={arrowTopImg} alt="Flecha hacia arriba" />
         </div>
       </button>
       <ModalCta show={showModalCta} closeModal={() => setShowModalCta(false)} />

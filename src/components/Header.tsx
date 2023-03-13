@@ -62,6 +62,7 @@ const Header: FC = () => {
       <button
         type="button"
         onClick={() => state.swiperMaster?.slideTo(0)}
+        disabled={!state.isLogoPositioned}
         className="rounded-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-yellow focus:ring-offset-1 focus:ring-offset-transparent"
       >
         <span className="sr-only">Ir al inicio</span>
@@ -91,7 +92,7 @@ const Header: FC = () => {
         onClick={() => setShowMenu(true)}
       >
         <p className="sr-only">Abrir menu</p>
-        <Image objectFit="contain" layout="fill" src={BurgerImg} alt="Menu" />
+        <Image src={BurgerImg} alt="Menu" />
       </button>
       <ModalMenu show={showMenu} closeModal={() => setShowMenu(false)} />
     </header>

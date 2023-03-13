@@ -19,7 +19,6 @@ const Team = ({ description, role, showVideo, name, image, video }: Props) => {
       <div className="relative mx-auto mt-8 h-80 w-56 rounded-md md:mr-0 lg:mr-auto lg:h-80 lg:w-64">
         <div className="absolute inset-0">
           <Image
-            layout="fill"
             src={usBorderImg}
             alt="Borde"
             sizes="(min-width: 1024px) 256px, 224px"
@@ -28,13 +27,12 @@ const Team = ({ description, role, showVideo, name, image, video }: Props) => {
         {image ? (
           <div className="absolute top-4 right-4 h-full w-full">
             <Image
-              layout="fill"
-              objectFit="cover"
-              objectPosition="top"
               className="aspect-[7/10] rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl saturate-[1.25]"
               src={image}
               alt={name}
               sizes="(min-width: 1024px) 256px, 224px"
+              width={256}
+              height={256}
             />
           </div>
         ) : null}

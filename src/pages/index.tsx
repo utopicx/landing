@@ -1,9 +1,4 @@
-import type {
-  GetStaticProps,
-  InferGetServerSidePropsType,
-  InferGetStaticPropsType,
-  NextPage,
-} from "next";
+import type { InferGetStaticPropsType, NextPage } from "next";
 import { InView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import AboutUs from "../components/AboutUs";
@@ -28,7 +23,7 @@ import "swiper/css";
 import "swiper/css/parallax";
 import "swiper/css/a11y";
 
-const ONE_DAY = 60 * 60 * 24;
+// const ONE_DAY = 60 * 60 * 24;
 
 export const getStaticProps = async () => {
   if (

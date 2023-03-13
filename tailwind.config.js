@@ -23,8 +23,8 @@ module.exports = {
         full: "0px 0px 13px 2px rgba(0,0,0,0.75)",
       },
       fontFamily: {
-        redhat: ["Red Hat Display", "sans-serif"],
-        ubuntu: ["Ubuntu", "sans-serif"],
+        redhat: ["var(--font-redHatDisplay)", "sans-serif"],
+        ubuntu: ["var(--font-ubuntu)", "sans-serif"],
       },
       keyframes: {
         "balance-y": {

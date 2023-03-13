@@ -18,6 +18,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.5",
     "react-intersection-observer": "^9.4.3",
+    "sharp": "^0.31.3",
     "swiper": "^9.1.0"
   },
   "devDependencies": {
@@ -26,6 +27,7 @@
     "@types/prettier": "^2.7.2",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/sharp": "^0",
     "autoprefixer": "^10.4.14",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",

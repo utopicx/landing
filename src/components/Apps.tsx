@@ -21,11 +21,11 @@ const Apps: FC = () => {
           {app?.Image ? (
             <div className="relative mx-auto mt-8 h-72 w-56 md:mt-0 md:mr-0 lg:h-80 lg:w-60">
               <Image
-                layout="fill"
-                objectFit="cover"
                 className="rounded-bl-lg rounded-tl rounded-br rounded-tr-lg"
                 src={app.Image.data.attributes.url}
                 alt={app?.name}
+                width={256}
+                height={256}
               />
             </div>
           ) : (
@@ -47,7 +47,7 @@ const Apps: FC = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image src={androidImg} alt="Android" layout="fill" />
+                <Image src={androidImg} alt="Android" />
               </a>
               {app?.URLApple ? (
                 <a
@@ -56,7 +56,7 @@ const Apps: FC = () => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Image src={appleImg} alt="Apple" layout="fill" />
+                  <Image src={appleImg} alt="Apple" />
                 </a>
               ) : null}
             </div>

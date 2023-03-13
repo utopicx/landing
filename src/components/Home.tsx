@@ -34,7 +34,6 @@ const Home: FC = () => {
             className="rotate-180"
             src={arrowTopImg}
             alt="Flecha hacia abajo"
-            layout="fill"
           />
         </div>
       </button>

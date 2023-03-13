@@ -61,19 +61,15 @@ const BgParallax = () => {
         </Transition>
         <div className="absolute -top-[14rem] -left-[16rem] h-[28rem] w-[28rem] md:-left-[14rem]">
           <Image
-            objectFit="contain"
             className="rotate-[120deg] blur-sm"
             src={fig1Img}
             alt="Cosmic figure"
-            layout="fill"
           />
         </div>
       </div>
       <div className="absolute inset-0 h-[140%]" data-swiper-parallax="-180%">
         <div className="absolute -top-[9rem] -right-[17rem] h-[22rem] w-[22rem] md:-top-[6rem] md:-right-[17rem]">
           <Image
-            objectFit="contain"
-            layout="fill"
             className="-rotate-[70deg] -scale-x-100 blur-sm md:-rotate-[60deg]"
             src={fig3Img}
             alt="Cosmic figure"
@@ -83,46 +79,36 @@ const BgParallax = () => {
       <div className="absolute inset-0 h-full" data-swiper-parallax="-180%">
         <div className="absolute -bottom-[18rem] -left-[22.5rem] h-[32rem] w-[32rem] md:-left-[20rem] md:-bottom-[16rem] md:h-[28rem] md:w-[28rem]">
           <div className="-rotate-90">
-            <div className="relative h-[21rem] w-[32rem] transform-gpu animate-[balance-y_8s_ease-in-out_infinite] blur md:h-[28rem] md:w-[28rem] md:blur-sm">
-              <Image
-                src={bean3Img}
-                alt="Cosmic bean"
-                layout="fill"
-                objectFit="contain"
-              />
+            <div className="h-[21rem] w-[32rem] transform-gpu animate-[balance-y_8s_ease-in-out_infinite] blur md:h-[25rem] md:blur-sm">
+              <Image src={bean3Img} alt="Cosmic bean" />
             </div>
           </div>
         </div>
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-400%">
         <div className="absolute left-8 bottom-[4rem] h-16 w-16 transform-gpu animate-[balance-y_3s_ease-in-out_infinite]">
-          <Image src={sphere3Img} alt="Cosmic sphere" layout="fill" />
+          <Image src={sphere3Img} alt="Cosmic sphere" />
         </div>
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-250%">
         <div className="absolute -bottom-[4rem] -right-[6rem] h-48 w-48 -scale-90 transform-gpu animate-[balance_5s_ease-in-out_infinite] blur-sm md:-bottom-[5rem] md:blur-none">
-          <Image src={sphere4Img} alt="Cosmic sphere" layout="fill" />
+          <Image src={sphere4Img} alt="Cosmic sphere" />
         </div>
       </div>
       <div className="absolute inset-0 h-[200%]" data-swiper-parallax="-120%">
         <div className="absolute -bottom-[20rem] -right-[14rem] h-72 w-72 animate-spin-slow blur md:-bottom-[17rem] md:-right-[10rem] md:blur-sm">
-          <Image src={sphere2Img} alt="Cosmic sphere" layout="fill" />
+          <Image src={sphere2Img} alt="Cosmic sphere" />
         </div>
       </div>
       <div className="absolute inset-0 h-[290%]" data-swiper-parallax="-70%">
         <div className="absolute -bottom-8 -left-[24rem] h-[38rem] w-[38rem] rotate-[95deg] md:-left-[22rem]">
-          <Image
-            className="blur"
-            src={beanImg}
-            alt="Cosmic bean"
-            layout="fill"
-          />
+          <Image className="blur" src={beanImg} alt="Cosmic bean" />
         </div>
       </div>
       <div className="absolute inset-0 h-[520%]" data-swiper-parallax="-80%">
         <div className="absolute -bottom-20 -right-32 h-64 w-64 transform-gpu animate-[balance-rotate_8s_ease-in-out_infinite] md:-right-28">
           <div className="relative h-[12.55rem] w-64 rotate-[25deg] md:rotate-[35deg]">
-            <Image src={fig2Img} alt="Cosmic figure" layout="fill" />
+            <Image src={fig2Img} alt="Cosmic figure" />
           </div>
         </div>
       </div>
@@ -138,7 +124,7 @@ const BgParallax = () => {
         >
           <div className="hidden hover:bg-black/50 lg:absolute lg:bottom-12 lg:left-12 lg:z-10 lg:block lg:h-28 lg:w-28 lg:rounded-full lg:bg-black/10 lg:p-5">
             <div className="relative h-[4.5rem] w-[4.5rem]">
-              <Image layout="fill" src={slideHandImg} alt="slide hand" />
+              <Image src={slideHandImg} alt="slide hand" />
             </div>
           </div>
         </Transition>

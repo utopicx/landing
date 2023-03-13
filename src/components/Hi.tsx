@@ -30,6 +30,9 @@ const Hi: FC = () => {
       <p className="mt-8 w-72 font-redhat text-white lg:mt-4 lg:w-full lg:max-w-lg lg:text-2xl">
         {state.texts?.global.ProyectDescription}
       </p>
+      <span className="mx-auto mt-2 w-72 text-right font-light italic text-white lg:w-full lg:max-w-lg">
+        &quot;El Futuro es hoy, oiste Viejo&quot; - Dewey
+      </span>
       <Transition
         show={show}
         as={Fragment}
@@ -49,7 +52,6 @@ const Hi: FC = () => {
             }}
             src={ambassadorGif}
             alt="Uxi"
-            layout="fill"
           />
         </div>
       </Transition>
