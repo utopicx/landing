@@ -84,11 +84,12 @@ interface Team {
 
 interface GlobalEntity {
   HomeDescription: string;
-  ProyectTitle: string;
-  ProyectDescription: string;
+  ProjectTitle: string;
+  ProjectDescription: string;
   ContactDescription: string;
   ContactFormTitle: string;
-  ContacFormDescription: string;
+  ContactFormDescription: string;
+  Quote: string;
 }
 
 interface Seo {

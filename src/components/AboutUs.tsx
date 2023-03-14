@@ -7,10 +7,10 @@ import { FC, Fragment, useEffect, useState } from "react";
 import ambassadorImg from "../../public/gifs/spray_loop.gif";
 import { Transition } from "@headlessui/react";
 import { useGlobal } from "../context/global/Context";
+import Team from "./Team";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import Team from "./Team";
 
 let alreadyShow = false;
 

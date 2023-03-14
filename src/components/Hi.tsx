@@ -25,13 +25,13 @@ const Hi: FC = () => {
       className="relative flex min-h-screen flex-col items-center justify-center text-center"
     >
       <h2 className="text-4xl font-bold text-utopicx-magenta lg:text-7xl">
-        {state.texts?.global.ProyectTitle}
+        {state.texts?.global.ProjectTitle}
       </h2>
       <p className="mt-8 w-72 font-redhat text-white lg:mt-4 lg:w-full lg:max-w-lg lg:text-2xl">
-        {state.texts?.global.ProyectDescription}
+        {state.texts?.global.ProjectDescription}
       </p>
       <span className="mx-auto mt-2 w-72 text-right font-light italic text-white lg:w-full lg:max-w-lg">
-        &quot;El Futuro es hoy, oiste Viejo&quot; - Dewey
+        {state.texts?.global.Quote}
       </span>
       <Transition
         show={show}
