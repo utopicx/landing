@@ -4,22 +4,26 @@ import SEO from "../../next-seo.config";
 import { DefaultSeo } from "next-seo";
 import localFonts from "../utils/localFonts";
 import PreloaderImage from "../components/PreloaderImage";
+import { Analytics } from "@vercel/analytics/react";
 
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <section
-      className={`${localFonts.RedHatDisplay.variable} ${localFonts.Ubuntu.variable}`}
-    >
-      <GlobalProvider>
-        <>
-          <DefaultSeo {...SEO} />
-          <Component {...pageProps} />
-          <PreloaderImage />
-        </>
-      </GlobalProvider>
-    </section>
+    <>
+      <section
+        className={`${localFonts.RedHatDisplay.variable} ${localFonts.Ubuntu.variable}`}
+      >
+        <GlobalProvider>
+          <>
+            <DefaultSeo {...SEO} />
+            <Component {...pageProps} />
+            <PreloaderImage />
+          </>
+        </GlobalProvider>
+      </section>
+      <Analytics />
+    </>
   );
 }
 
