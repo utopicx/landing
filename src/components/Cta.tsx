@@ -35,9 +35,9 @@ const Cta: FC = () => {
       </button>
       <a
         className="mt-1 rounded-md font-redhat text-white focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:text-2xl"
-        href="mailto:equipo@utópicx.com"
+        href="mailto:contacto@utopicx.com"
       >
-        equipo@utópicx.com
+        contacto@utopicx.com
       </a>
       <button
         type="button"

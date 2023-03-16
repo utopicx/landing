@@ -41,11 +41,11 @@ const BgParallax = () => {
           show={showAmbassador}
           as={Fragment}
           enter="transition-transform ease-out duration-1000"
-          enterFrom="-translate-y-14 -translate-x-14"
+          enterFrom="-translate-y-20 -translate-x-20"
           enterTo="translate-y-0 translate-x-0"
           leave="transition-transform ease-in-out duration-1000"
           leaveFrom="translate-y-0 translate-x-0"
-          leaveTo="-translate-y-20 -translate-x-20"
+          leaveTo="-translate-y-28 -translate-x-28"
         >
           <div className="absolute -top-[5rem] -left-[4rem] h-[16rem] w-[16rem] rotate-[120deg] blur-sm md:-top-[3rem] md:-left-[3rem]">
             <Image

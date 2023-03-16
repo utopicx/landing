@@ -21,7 +21,7 @@ const Apps: FC = () => {
           {app?.Image ? (
             <div className="relative mx-auto mt-8 h-72 w-56 md:mt-0 md:mr-0 lg:h-80 lg:w-60">
               <Image
-                className="rounded-bl-lg rounded-tl rounded-br rounded-tr-lg"
+                className="rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl"
                 src={app.Image.data.attributes.url}
                 alt={app?.name}
                 width={256}
