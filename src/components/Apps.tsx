@@ -19,19 +19,20 @@ const Apps: FC = () => {
         </h2>
         <div className="md:mt-4 md:grid md:grid-cols-2">
           {app?.Image ? (
-            <div className="relative mx-auto mt-8 h-72 w-56 md:mt-0 md:mr-0 lg:h-80 lg:w-60">
-              <Image
-                className="rounded-bl-2xl rounded-tr-2xl rounded-br rounded-tl"
-                src={app.Image.data.attributes.url}
-                alt={app?.name}
-                width={256}
-                height={256}
-              />
+            <div className="relative mt-8 w-56 md:mx-auto md:mt-0 md:mr-0 lg:h-80 lg:w-60">
+              <div className="h-full px-4 md:pt-6">
+                <Image
+                  src={`${app.Image.data.attributes.url}?`}
+                  alt={app?.Image.data.attributes.alternativeText}
+                  width={256}
+                  height={256}
+                />
+              </div>
             </div>
           ) : (
             <div className="mx-auto mt-8 h-72 w-56 rounded-bl-lg rounded-tr-lg bg-gray-600 bg-opacity-95 md:mt-0 md:mr-0 lg:h-80 lg:w-60" />
           )}
-          <div className="relative z-10 mx-2 -mt-4 md:mt-0 md:flex md:flex-col md:justify-between md:pr-32 lg:pr-0">
+          <div className="relative z-10 mx-2 mt-8 md:mt-0 md:flex md:flex-col md:justify-between md:pr-32 lg:pr-0">
             <div className="flex items-center md:mx-0">
               <h3 className="text-4xl font-bold text-utopicx-magenta lg:text-7xl lg:leading-[4rem]">
                 {app?.name}
@@ -49,7 +50,7 @@ const Apps: FC = () => {
               >
                 <Image src={androidImg} alt="Android" />
               </a>
-              {app?.URLApple ? (
+              {app?.URLApple && app.URLApple !== "-" ? (
                 <a
                   className="relative h-14 w-14 rounded-tl rounded-tr-md rounded-bl-md rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                   href={app?.URLApple}
