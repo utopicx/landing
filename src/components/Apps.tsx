@@ -1,6 +1,7 @@
 import Image from "next/image";
 import androidImg from "../../public/images/descarga_android.png";
 import appleImg from "../../public/images/descarga_apple.png";
+import altaPreviaImg from "../../public/images/alta_previa.png";
 import { FC } from "react";
 import { useGlobal } from "../context/global/Context";
 
@@ -22,7 +23,7 @@ const Apps: FC = () => {
             <div className="relative mt-8 w-56 md:mx-auto md:mt-0 md:mr-0 lg:h-80 lg:w-60">
               <div className="h-full px-4 md:pt-6">
                 <Image
-                  src={`${app.Image.data.attributes.url}?`}
+                  src={altaPreviaImg}
                   alt={app?.Image.data.attributes.alternativeText}
                   width={256}
                   height={256}
