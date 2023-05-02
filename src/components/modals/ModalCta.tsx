@@ -15,6 +15,8 @@ import localFonts from "../../utils/localFonts";
 interface Props {
   show: boolean;
   closeModal: () => void;
+  title: string;
+  description: string;
 }
 
 interface Form {
@@ -23,7 +25,7 @@ interface Form {
   comments: string;
 }
 
-const ModalCta: FC<Props> = ({ show, closeModal }) => {
+const ModalCta: FC<Props> = ({ show, closeModal, title, description }) => {
   const { state } = useGlobal();
   const {
     register,
@@ -134,7 +136,7 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
               leaveFrom="opacity-100 translate-y-0 sm:scale-100"
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
-              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pt-5 pb-6 text-left transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
+              <Dialog.Panel className="relative transform overflow-hidden rounded-bl-lg rounded-tr-lg bg-transparent px-8 pb-6 pt-5 text-left transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6 lg:mt-24 lg:px-12">
                 <button
                   type="button"
                   className="absolute right-8 top-8 z-30 h-8 w-8 rounded-md border border-transparent p-1 focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
@@ -150,10 +152,10 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                         as="h3"
                         className="pr-8 font-ubuntu text-3xl font-medium text-utopicx-cyan lg:pr-4 lg:text-5xl"
                       >
-                        {state.texts?.global.ContactFormTitle}
+                        {title}
                       </Dialog.Title>
                       <p className="mt-4 pr-8 font-redhat text-sm text-white lg:pr-4 lg:text-xl">
-                        {state.texts?.global.ContactFormDescription}
+                        {description}
                       </p>
                     </div>
                   </div>
@@ -171,10 +173,10 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           {...register("name", { required: true })}
                           required
                           id="name"
-                          className="relative z-10 block w-full rounded-br-md rounded-tl-md rounded-bl-[1.25rem] rounded-tr-[1.25rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-br-md rounded-tl-md rounded-tr-[1.25rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Apodo o nombre "
                         />
-                        <div className="absolute inset-x-0 top-0 bottom-[0.01rem]">
+                        <div className="absolute inset-x-0 bottom-[0.01rem] top-0">
                           <Image
                             className="h-full"
                             src={bgFormLabelImg}
@@ -193,10 +195,10 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           {...register("email", { required: true })}
                           required
                           id="email"
-                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-tr-[1.25rem] rounded-br-md rounded-tl-md border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full rounded-bl-[1.25rem] rounded-br-md rounded-tl-md rounded-tr-[1.25rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           placeholder="Mail"
                         />
-                        <div className="absolute inset-x-0 top-0 bottom-[0.01rem]">
+                        <div className="absolute inset-x-0 bottom-[0.01rem] top-0">
                           <Image
                             className="h-full"
                             src={bgFormLabelImg}
@@ -215,7 +217,7 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                           {...register("comments", { required: true })}
                           required
                           id="comment"
-                          className="relative z-10 block w-full resize-none rounded-bl-[1.75rem] rounded-tr-[1.75rem] rounded-br-lg rounded-tl-lg border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
+                          className="relative z-10 block w-full resize-none rounded-bl-[1.75rem] rounded-br-lg rounded-tl-lg rounded-tr-[1.75rem] border-transparent bg-transparent font-redhat text-white shadow-sm placeholder:text-gray-100 focus:border-transparent focus:ring-2 focus:ring-utopicx-magenta sm:text-sm lg:text-xl"
                           defaultValue={""}
                           placeholder="Comentarios"
                         />
@@ -235,7 +237,7 @@ const ModalCta: FC<Props> = ({ show, closeModal }) => {
                     ) : (
                       <button
                         type="submit"
-                        className="inline-flex w-full items-center rounded-bl-3xl rounded-tl-lg rounded-br-lg rounded-tr-3xl border border-transparent text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent disabled:grayscale"
+                        className="inline-flex w-full items-center rounded-bl-3xl rounded-br-lg rounded-tl-lg rounded-tr-3xl border border-transparent text-xl font-medium text-utopicx-cyan focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent disabled:grayscale"
                         disabled={isSubmitting}
                       >
                         <span className="sr-only">Enviar</span>

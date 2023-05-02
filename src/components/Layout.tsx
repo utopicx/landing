@@ -1,15 +1,16 @@
 import Header from "./Header";
-import Seo from "./Seo";
+import Seo, { PropsSeo } from "./Seo";
 import { FC, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  seo: PropsSeo;
 }
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children, seo }) => {
   return (
     <section className="select-none bg-utopicx-gray-dark font-ubuntu">
-      <Seo />
+      <Seo {...seo} />
       <Header />
       <main className="relative h-screen">{children}</main>
     </section>

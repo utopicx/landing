@@ -1,11 +1,9 @@
 import Swiper from "swiper";
-import { Texts } from "./state";
 
 export enum GlobalActionKind {
   SET_SECTION,
   SET_SWIPER_MASTER,
   SET_IS_LOGO_POSITIONED,
-  SET_TEXTS,
 }
 
 export interface SetSection {
@@ -29,15 +27,4 @@ export interface SetIsLogoPositioned {
   };
 }
 
-export interface SetTexts {
-  type: GlobalActionKind.SET_TEXTS;
-  payload: {
-    texts: Texts;
-  };
-}
-
-export type GlobalAction =
-  | SetSection
-  | SetSwiperMaster
-  | SetIsLogoPositioned
-  | SetTexts;
+export type GlobalAction = SetSection | SetSwiperMaster | SetIsLogoPositioned;

@@ -6,7 +6,11 @@ import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
 import { FC } from "react";
 
-const Home: FC = () => {
+interface Props {
+  description: string;
+}
+
+const Home: FC<Props> = ({ description }) => {
   const { state } = useGlobal();
 
   return (
@@ -21,7 +25,7 @@ const Home: FC = () => {
       </div>
       <h1 className="sr-only">Utópicx</h1>
       <p className="w-52 text-center text-white lg:-mt-10 lg:w-80 lg:text-2xl">
-        {state.texts?.global.HomeDescription}
+        {description}
       </p>
       <button
         type="button"

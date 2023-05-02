@@ -2,18 +2,24 @@ import { NextSeo } from "next-seo";
 import { FC } from "react";
 import { useGlobal } from "../context/global/Context";
 
-const Seo: FC = () => {
+export interface PropsSeo {
+  title?: string;
+  description?: string;
+  url?: string;
+}
+
+const Seo: FC<PropsSeo> = ({ title, description, url }) => {
   const { state } = useGlobal();
   const titleSection = state.section ? `${state.section} | ` : "";
   return (
     <NextSeo
-      title={`${titleSection}${state.texts?.seo?.Title || "Utópicx"}`}
-      description={state.texts?.seo?.Description || "Utópicx landing page."}
-      canonical={state.texts?.seo?.URL || "https://utopicx.com"}
+      title={`${titleSection}${title || "Utópicx"}`}
+      description={description || "Utópicx landing page."}
+      canonical={url || "https://utopicx.com"}
       openGraph={{
-        url: state.texts?.seo?.URL || "https://utopicx.com",
-        title: state.texts?.seo?.Title || "Utópicx",
-        description: state.texts?.seo?.Description || "Utópicx landing page.",
+        url: url || "https://utopicx.com",
+        title: title || "Utópicx",
+        description: description || "Utópicx landing page.",
       }}
     />
   );

@@ -6,7 +6,6 @@ import arrowTop from "../../public/images/flecha.png";
 import { FC, Fragment, useEffect, useState } from "react";
 import ambassadorImg from "../../public/gifs/spray_loop.gif";
 import { Transition } from "@headlessui/react";
-import { useGlobal } from "../context/global/Context";
 import Team from "./Team";
 
 import "swiper/css";
@@ -14,8 +13,11 @@ import "swiper/css/navigation";
 
 let alreadyShow = false;
 
-const AboutUs: FC = () => {
-  const { state } = useGlobal();
+interface Props {
+  teams: Array<Team & { id: number }>;
+}
+
+const AboutUs: FC<Props> = ({ teams }) => {
   const [stateSwiper, setStateSwiper] = useState<{
     currentSlide: number;
     swiper: SwiperType;
@@ -23,7 +25,6 @@ const AboutUs: FC = () => {
   const swiperSlide = useSwiperSlide();
   const [showAmbassador, setShowAmbassador] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
-  const { teams } = state?.texts || { teams: [] };
 
   useEffect(() => {
     stateSwiper?.swiper?.on("slideChange", (swiper) => {
@@ -59,7 +60,7 @@ const AboutUs: FC = () => {
         leaveFrom="translate-x-0"
         leaveTo="-translate-x-28"
       >
-        <div className="absolute bottom-32 -left-28 z-10 h-[16rem] w-[16rem]">
+        <div className="absolute -left-28 bottom-32 z-10 h-[16rem] w-[16rem]">
           <Image
             onLoadingComplete={() => {
               setTimeout(() => {
@@ -127,8 +128,8 @@ const AboutUs: FC = () => {
         <button
           className="absolute right-2 z-20 h-14 w-14 disabled:opacity-50"
           disabled={
-            !!state.texts?.teams &&
-            stateSwiper?.currentSlide === state.texts.teams.length - 2
+            Array.isArray(teams) &&
+            stateSwiper?.currentSlide === teams.length - 2
           }
           onClick={() => stateSwiper?.swiper?.slideNext()}
         >

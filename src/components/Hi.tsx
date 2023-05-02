@@ -2,14 +2,18 @@ import Image from "next/image";
 import ambassadorGif from "../../public/gifs/sonrie_loop.gif";
 import { FC, useEffect, useState, Fragment } from "react";
 import { Transition } from "@headlessui/react";
-import { useGlobal } from "../context/global/Context";
 import { useSwiperSlide } from "swiper/react";
 
 let alreadyShow = false;
 
-const Hi: FC = () => {
+interface Props {
+  title: string;
+  description: string;
+  quote: string;
+}
+
+const Hi: FC<Props> = ({ title, quote, description }) => {
   const [show, setShow] = useState(false);
-  const { state } = useGlobal();
   const swiperSlide = useSwiperSlide();
 
   useEffect(() => {
@@ -25,13 +29,13 @@ const Hi: FC = () => {
       className="relative flex min-h-screen flex-col items-center justify-center text-center"
     >
       <h2 className="text-4xl font-bold text-utopicx-magenta lg:text-7xl">
-        {state.texts?.global.ProjectTitle}
+        {title}
       </h2>
       <p className="mt-8 w-72 font-redhat text-white lg:mt-4 lg:w-full lg:max-w-lg lg:text-2xl">
-        {state.texts?.global.ProjectDescription}
+        {description}
       </p>
       <span className="mx-auto mt-2 w-72 text-right font-light italic text-white lg:w-full lg:max-w-lg">
-        {state.texts?.global.Quote}
+        {quote}
       </span>
       <Transition
         show={show}

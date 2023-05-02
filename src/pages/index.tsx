@@ -16,14 +16,13 @@ import appService from "../services/app";
 import teamService from "../services/team";
 import globalService from "../services/global";
 import seoService from "../services/seo";
-import { useEffect } from "react";
 import { shuffle } from "../utils/array";
 
 import "swiper/css";
 import "swiper/css/parallax";
 import "swiper/css/a11y";
 
-// const ONE_DAY = 60 * 60 * 24;
+const ONE_DAY = 60 * 60 * 24;
 
 export const getStaticProps = async () => {
   if (
@@ -70,7 +69,7 @@ export const getStaticProps = async () => {
       globalData: globalData.data,
       seo: seo.data,
     },
-    revalidate: 10,
+    revalidate: ONE_DAY,
   };
 };
 
@@ -79,29 +78,14 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
 ) => {
   const { dispatch } = useGlobal();
 
-  useEffect(() => {
-    const teams = props.teams.map((team) => ({
-      id: team.id,
-      ...team.attributes,
-    }));
-    dispatch({
-      type: GlobalActionKind.SET_TEXTS,
-      payload: {
-        texts: {
-          apps: props.apps.map((app) => ({
-            id: app.id,
-            ...app.attributes,
-          })),
-          seo: props.seo?.attributes,
-          global: props.globalData.attributes,
-          teams,
-        },
-      },
-    });
-  }, []);
-
   return (
-    <Layout>
+    <Layout
+      seo={{
+        url: props.seo?.attributes?.URL,
+        description: props.seo?.attributes?.Description,
+        title: props.seo?.attributes?.Title,
+      }}
+    >
       <Swiper
         direction="vertical"
         pagination={{
@@ -131,7 +115,7 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 });
             }}
           >
-            <Home />
+            <Home description={props.globalData.attributes.HomeDescription} />
           </InView>
         </SwiperSlide>
         <SwiperSlide>
@@ -147,7 +131,11 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 });
             }}
           >
-            <Hi />
+            <Hi
+              title={props.globalData.attributes.ProjectTitle}
+              description={props.globalData.attributes.ProjectDescription}
+              quote={props.globalData.attributes.Quote}
+            />
           </InView>
         </SwiperSlide>
         <SwiperSlide>
@@ -163,7 +151,14 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 });
             }}
           >
-            <AboutUs />
+            <AboutUs
+              teams={
+                props.teams.map((team) => ({
+                  id: team.id,
+                  ...team.attributes,
+                })) || []
+              }
+            />
           </InView>
         </SwiperSlide>
         <SwiperSlide>
@@ -179,7 +174,12 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 });
             }}
           >
-            <Apps />
+            <Apps
+              data={props.apps.map((app) => ({
+                id: app.id,
+                ...app.attributes,
+              }))}
+            />
           </InView>
         </SwiperSlide>
         <SwiperSlide>
@@ -195,7 +195,13 @@ const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
                 });
             }}
           >
-            <Cta />
+            <Cta
+              description={props.globalData.attributes.ContactDescription}
+              modalCta={{
+                title: props.globalData.attributes.ContactFormTitle,
+                description: props.globalData.attributes.ContactFormDescription,
+              }}
+            />
           </InView>
         </SwiperSlide>
       </Swiper>

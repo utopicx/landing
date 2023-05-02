@@ -8,7 +8,15 @@ import btnSendImg from "../../public/images/btn_enviar.png";
 import LogoMiniAnimation from "./LogoMiniAnimation";
 import PatchLogo from "./PatchLogo";
 
-const Cta: FC = () => {
+interface Props {
+  description: string;
+  modalCta: {
+    title: string;
+    description: string;
+  };
+}
+
+const Cta: FC<Props> = ({ description, modalCta }) => {
   const { state } = useGlobal();
   const [showModalCta, setShowModalCta] = useState(false);
   return (
@@ -22,12 +30,12 @@ const Cta: FC = () => {
         <LogoMiniAnimation isReverse />
       </div>
       <h3 className="-mt-2 mb-2 text-center font-redhat text-2xl font-medium text-white lg:-mt-10 lg:mb-4 lg:text-4xl">
-        {state.texts?.global.ContactDescription}
+        {description}
       </h3>
       <button
         type="button"
         onClick={() => setShowModalCta(true)}
-        className="inline-flex w-64 items-center rounded-bl-2xl rounded-tl rounded-tr-2xl rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
+        className="inline-flex w-64 items-center rounded-bl-2xl rounded-br rounded-tl rounded-tr-2xl border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-cyan focus:ring-offset-1 focus:ring-offset-transparent lg:w-80"
       >
         <div className="relative h-12 w-64 lg:h-14 lg:w-80">
           <Image src={btnSendImg} alt="Enviar" />
@@ -49,7 +57,11 @@ const Cta: FC = () => {
           <Image src={arrowTopImg} alt="Flecha hacia arriba" />
         </div>
       </button>
-      <ModalCta show={showModalCta} closeModal={() => setShowModalCta(false)} />
+      <ModalCta
+        show={showModalCta}
+        closeModal={() => setShowModalCta(false)}
+        {...modalCta}
+      />
     </section>
   );
 };

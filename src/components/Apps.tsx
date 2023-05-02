@@ -3,11 +3,13 @@ import androidImg from "../../public/images/descarga_android.png";
 import appleImg from "../../public/images/descarga_apple.png";
 import altaPreviaImg from "../../public/images/alta_previa.png";
 import { FC } from "react";
-import { useGlobal } from "../context/global/Context";
 
-const Apps: FC = () => {
-  const { state } = useGlobal();
-  const app = state.texts?.apps[0];
+interface Props {
+  data: Array<App & { id: number }>;
+}
+
+const Apps: FC<Props> = ({ data }) => {
+  const app = data[0];
 
   return (
     <section
@@ -20,7 +22,7 @@ const Apps: FC = () => {
         </h2>
         <div className="md:mt-4 md:grid md:grid-cols-2">
           {app?.Image ? (
-            <div className="relative mt-8 w-56 md:mx-auto md:mt-0 md:mr-0 lg:h-80 lg:w-60">
+            <div className="relative mt-8 w-56 md:mx-auto md:mr-0 md:mt-0 lg:h-80 lg:w-60">
               <div className="h-full px-4 md:pt-6">
                 <Image
                   src={altaPreviaImg}
@@ -31,7 +33,7 @@ const Apps: FC = () => {
               </div>
             </div>
           ) : (
-            <div className="mx-auto mt-8 h-72 w-56 rounded-bl-lg rounded-tr-lg bg-gray-600 bg-opacity-95 md:mt-0 md:mr-0 lg:h-80 lg:w-60" />
+            <div className="mx-auto mt-8 h-72 w-56 rounded-bl-lg rounded-tr-lg bg-gray-600 bg-opacity-95 md:mr-0 md:mt-0 lg:h-80 lg:w-60" />
           )}
           <div className="relative z-10 mx-2 mt-8 md:mt-0 md:flex md:flex-col md:justify-between md:pr-32 lg:pr-0">
             <div className="flex items-center md:mx-0">
@@ -44,7 +46,7 @@ const Apps: FC = () => {
             </p>
             <div className="flex gap-x-1 md:justify-start md:gap-x-4">
               <a
-                className="relative h-14 w-14 rounded-tl rounded-tr-md rounded-bl-md rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                 href={app?.URLAndroid}
                 target="_blank"
                 rel="noreferrer"
@@ -53,7 +55,7 @@ const Apps: FC = () => {
               </a>
               {app?.URLApple && app.URLApple !== "-" ? (
                 <a
-                  className="relative h-14 w-14 rounded-tl rounded-tr-md rounded-bl-md rounded-br border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
+                  className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
                   href={app?.URLApple}
                   target="_blank"
                   rel="noreferrer"

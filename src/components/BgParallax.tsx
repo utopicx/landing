@@ -47,7 +47,7 @@ const BgParallax = () => {
           leaveFrom="translate-y-0 translate-x-0"
           leaveTo="-translate-y-28 -translate-x-28"
         >
-          <div className="absolute -top-[5rem] -left-[4rem] h-[16rem] w-[16rem] rotate-[120deg] blur-sm md:-top-[3rem] md:-left-[3rem]">
+          <div className="absolute -left-[4rem] -top-[5rem] h-[16rem] w-[16rem] rotate-[120deg] blur-sm md:-left-[3rem] md:-top-[3rem]">
             <Image
               onLoadingComplete={() => {
                 setTimeout(() => {
@@ -59,16 +59,17 @@ const BgParallax = () => {
             />
           </div>
         </Transition>
-        <div className="absolute -top-[14rem] -left-[16rem] h-[28rem] w-[28rem] md:-left-[14rem]">
+        <div className="absolute -left-[16rem] -top-[14rem] h-[28rem] w-[28rem] md:-left-[14rem]">
           <Image
             className="rotate-[120deg] blur-sm"
             src={fig1Img}
             alt="Cosmic figure"
+            priority
           />
         </div>
       </div>
       <div className="absolute inset-0 h-[140%]" data-swiper-parallax="-180%">
-        <div className="absolute -top-[9rem] -right-[17rem] h-[22rem] w-[22rem] md:-top-[6rem] md:-right-[17rem]">
+        <div className="absolute -right-[17rem] -top-[9rem] h-[22rem] w-[22rem] md:-right-[17rem] md:-top-[6rem]">
           <Image
             className="-rotate-[70deg] -scale-x-100 blur-sm md:-rotate-[60deg]"
             src={fig3Img}
@@ -77,7 +78,7 @@ const BgParallax = () => {
         </div>
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-180%">
-        <div className="absolute -bottom-[18rem] -left-[22.5rem] h-[32rem] w-[32rem] md:-left-[20rem] md:-bottom-[16rem] md:h-[28rem] md:w-[28rem]">
+        <div className="absolute -bottom-[18rem] -left-[22.5rem] h-[32rem] w-[32rem] md:-bottom-[16rem] md:-left-[20rem] md:h-[28rem] md:w-[28rem]">
           <div className="-rotate-90">
             <div className="h-[21rem] w-[32rem] transform-gpu animate-[balance-y_8s_ease-in-out_infinite] blur md:h-[25rem] md:blur-sm">
               <Image src={bean3Img} alt="Cosmic bean" />
@@ -86,7 +87,7 @@ const BgParallax = () => {
         </div>
       </div>
       <div className="absolute inset-0 h-full" data-swiper-parallax="-400%">
-        <div className="absolute left-8 bottom-[4rem] h-16 w-16 transform-gpu animate-[balance-y_3s_ease-in-out_infinite]">
+        <div className="absolute bottom-[4rem] left-8 h-16 w-16 transform-gpu animate-[balance-y_3s_ease-in-out_infinite]">
           <Image src={sphere3Img} alt="Cosmic sphere" />
         </div>
       </div>
