@@ -1,5 +1,5 @@
 import Image from "next/image";
-import androidImg from "../../public/images/descarga_android.png";
+// import androidImg from "../../public/images/descarga_android.png";
 import appleImg from "../../public/images/descarga_apple.png";
 import altaPreviaImg from "../../public/images/alta_previa.png";
 import { FC } from "react";
@@ -45,14 +45,17 @@ const Apps: FC<Props> = ({ data }) => {
               {app?.description}
             </p>
             <div className="flex gap-x-1 md:justify-start md:gap-x-4">
-              <a
-                className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
-                href={app?.URLAndroid}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Image src={androidImg} alt="Android" />
-              </a>
+              <p className="font-redhat text-2xl font-bold text-utopicx-magenta">
+                🚀 Próximamente 30/06/23
+              </p>
+              {/*<a*/}
+              {/*  className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"*/}
+              {/*  href={app?.URLAndroid}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noreferrer"*/}
+              {/*>*/}
+              {/*  <Image src={androidImg} alt="Android" />*/}
+              {/*</a>*/}
               {app?.URLApple && app.URLApple !== "-" ? (
                 <a
                   className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
