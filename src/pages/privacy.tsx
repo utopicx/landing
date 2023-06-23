@@ -1,6 +1,9 @@
+import Seo from "../components/Seo";
+
 const Privacy = () => {
   return (
-    <div>
+    <div className="container mx-auto p-4">
+      <Seo title="Politícas de privacidad | Utopicx | Alta Previa" />
       <h3>AVISO DE PRIVACIDAD</h3>
       <p>
         Utopicx mantiene su compromiso de respetar su privacidad mientras usa
