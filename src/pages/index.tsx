@@ -9,7 +9,7 @@ import Home from "../components/Home";
 import Layout from "../components/Layout";
 import { GlobalActionKind } from "../context/global/actions";
 import { useGlobal } from "../context/global/Context";
-import { A11y, Parallax } from "swiper";
+import { A11y, Parallax } from "swiper/modules";
 import BgParallax from "../components/BgParallax";
 import authService from "../services/auth";
 import appService from "../services/app";
@@ -49,10 +49,10 @@ export const getStaticProps = async () => {
   const shuffledTeams = [...shuffle(teams.data)];
 
   const indexUxi = shuffledTeams.findIndex(
-    (team) => team.attributes.name.toLowerCase() === "uxi"
+    (team) => team.attributes.name.toLowerCase() === "uxi",
   );
   const indexDavid = shuffledTeams.findIndex(
-    (team) => team.attributes.name.toLowerCase() === "david"
+    (team) => team.attributes.name.toLowerCase() === "david",
   );
 
   const newTeamsList = shuffledTeams.filter((_, i) => {
@@ -74,7 +74,7 @@ export const getStaticProps = async () => {
 };
 
 const Index: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = (
-  props
+  props,
 ) => {
   const { dispatch } = useGlobal();
 

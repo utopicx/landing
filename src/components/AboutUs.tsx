@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide, useSwiperSlide } from "swiper/react";
 import type SwiperType from "swiper";
-import { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import arrowTop from "../../public/images/flecha.png";
 import { FC, Fragment, useEffect, useState } from "react";
 import ambassadorImg from "../../public/gifs/spray_loop.gif";

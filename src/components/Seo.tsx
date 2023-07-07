@@ -20,6 +20,15 @@ const Seo: FC<PropsSeo> = ({ title, description, url }) => {
         url: url || "https://utopicx.com",
         title: title || "Utópicx",
         description: description || "Utópicx landing page.",
+        images: [
+          {
+            url: "https://utopicx.com/images/logo_mini.png",
+            width: 800,
+            height: 800,
+            alt: "Utópicx",
+            type: "image/png",
+          },
+        ],
       }}
     />
   );
