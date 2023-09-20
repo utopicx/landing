@@ -1,5 +1,9 @@
 declare global {
-  var jwt: string;
+    var jwt: string;
+
+    interface Window {
+        dataLayer: any;
+    }
 }
 
 export {};
