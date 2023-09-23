@@ -60,6 +60,7 @@ const Apps: FC<Props> = ({data}) => {
                                         platform: "android",
                                     });
                                 }}
+                                id={`link-android-${app?.name}`}
                             >
                                 <Image src={androidImg} alt="Android"/>
                             </a>
@@ -76,6 +77,7 @@ const Apps: FC<Props> = ({data}) => {
                                             platform: "ios",
                                         });
                                     }}
+                                    id={`link-ios-${app?.name}`}
                                 >
                                     <Image src={appleImg} alt="Apple"/>
                                 </a>
