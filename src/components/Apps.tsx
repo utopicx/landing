@@ -4,6 +4,7 @@ import androidImg from "../../public/images/descarga_android.png";
 import appleImg from "../../public/images/descarga_apple.png";
 import altaPreviaImg from "../../public/images/alta_previa.png";
 import AnalyticsService from "../services/analytics";
+import {hrefWithUtm} from "../utils/utm";
 
 interface Props {
     data: Array<App & { id: number }>;
@@ -50,7 +51,12 @@ const Apps: FC<Props> = ({data}) => {
                         <div className="flex gap-x-1 md:justify-start md:gap-x-4">
                             <a
                                 className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
-                                href={app?.URLAndroid}
+                                href={hrefWithUtm(
+                                    app?.URLAndroid,
+                                    {
+                                        campaign: "internal_share",
+                                    }
+                                )}
                                 target="_blank"
                                 rel="noreferrer"
                                 onClick={() => {
@@ -67,7 +73,12 @@ const Apps: FC<Props> = ({data}) => {
                             {app?.URLApple && app.URLApple !== "-" ? (
                                 <a
                                     className="relative h-14 w-14 rounded-bl-md rounded-br rounded-tl rounded-tr-md border border-transparent focus:outline-none focus:ring-1 focus:ring-utopicx-magenta focus:ring-offset-1 focus:ring-offset-transparent"
-                                    href={app?.URLApple}
+                                    href={hrefWithUtm(
+                                        app?.URLApple,
+                                        {
+                                            campaign: "internal_share",
+                                        }
+                                    )}
                                     target="_blank"
                                     rel="noreferrer"
                                     onClick={() => {
