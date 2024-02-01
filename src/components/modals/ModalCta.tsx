@@ -96,9 +96,9 @@ const ModalCta: FC<Props> = ({ show, closeModal, title, description }) => {
 
   useEffect(() => {
     if (isSubmitSuccessful) {
-      setTimeout(() => {
-        closeModal();
-      }, 2000);
+      // setTimeout(() => {
+      //   closeModal();
+      // }, 2000);
     }
   }, [isSubmitSuccessful]);
 
@@ -231,7 +231,7 @@ const ModalCta: FC<Props> = ({ show, closeModal, title, description }) => {
                       </div>
                     </div>
                     {isSubmitSuccessful ? (
-                      <p className="text-center text-2xl text-utopicx-cyan">
+                      <p className="text-center font-redhat pb-6 text-3xl text-utopicx-cyan">
                         ¡Comentario enviado!
                       </p>
                     ) : (
