@@ -42,12 +42,12 @@ const Hi: FC<Props> = ({ title, quote, description }) => {
         as={Fragment}
         enter="transition-all ease-in-out duration-1000"
         enterFrom="rotate-0 -right-36"
-        enterTo="-rotate-[10deg] -right-16"
+        enterTo="-rotate-[10deg] -right-16 opacity-100"
         leave="transition-all ease-in-out duration-1000"
         leaveFrom="-rotate-[10deg] -right-16"
-        leaveTo="rotate-0 -right-52"
+        leaveTo="rotate-0 -right-52 opacity-0"
       >
-        <div className="absolute bottom-2 h-44 w-52">
+        <div className="absolute -rotate-[10deg] -right-16 bottom-2 h-44 w-52">
           <Image
             onLoadingComplete={() => {
               setTimeout(() => {
